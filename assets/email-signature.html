@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinatura de Email - Mario Mourão</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .signature-container {
+            max-width: 600px;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .signature-wrapper {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .logo-cell {
+            display: table-cell;
+            vertical-align: top;
+            padding: 15px 20px 15px 0;
+            width: 120px;
+        }
+
+        .logo-cell img {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+
+        .content-cell {
+            display: table-cell;
+            vertical-align: top;
+            padding: 10px 0;
+        }
+
+        .name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 3px 0;
+            line-height: 1.2;
+        }
+
+        .company {
+            font-size: 14px;
+            font-weight: 500;
+            color: #0066cc;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 8px 0;
+        }
+
+        .contact-info {
+            font-size: 12px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .contact-line {
+            margin: 3px 0;
+        }
+
+        .contact-label {
+            font-weight: 500;
+            color: #333333;
+        }
+
+        .address {
+            max-width: 200px;
+        }
+
+        .phone-email {
+            margin-top: 5px;
+        }
+
+        .phone-item {
+            margin: 2px 0;
+        }
+
+        .social-links {
+            margin-top: 8px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #0066cc;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media only screen and (max-width: 480px) {
+            .signature-wrapper {
+                display: block;
+            }
+
+            .logo-cell {
+                display: block;
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .content-cell {
+                display: block;
+                padding: 0;
+            }
+
+            .address {
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signature-container">
+        <table class="signature-wrapper" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td class="logo-cell">
+                    <img src="https://mmouraoadvocacia.com.br/wp-content/uploads/2026/06/mmourao-vt-azul.png" alt="M. Mourão Advocacia" />
+                </td>
+                <td class="content-cell">
+                    <div class="name">Mario Mourão</div>
+                    <div class="company">M. Mourão Advocacia</div>
+                    <div class="divider"></div>
+                    <div class="contact-info">
+                        <div class="contact-line address">
+                            <span class="contact-label">Endereço:</span><br>
+                            Av. Paulista, nº 1636, 7º andar<br>
+                            São Paulo/SP
+                        </div>
+                        <div class="phone-email">
+                            <div class="phone-item">
+                                <span class="contact-label">Tel:</span> (11) 3197-4564
+                            </div>
+                            <div class="phone-item">
+                                <span class="contact-label">Cel:</span> (11) 99709-6369
+                            </div>
+                            <div class="phone-item">
+                                <span class="contact-label">Email:</span> <a href="mailto:advocacia@mariomourao.adv.br" style="color: #0066cc; text-decoration: none;">advocacia@mariomourao.adv.br</a>
+                            </div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/mario-mourao/" target="_blank">LinkedIn</a>
+                            <a href="https://mmouraoadvocacia.com.br" target="_blank">Website</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
