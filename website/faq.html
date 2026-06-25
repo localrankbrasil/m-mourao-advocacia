@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes | M. Mourão Advocacia</title>
+  <meta name="description" content="Respostas às dúvidas mais comuns sobre assessoria jurídica, honorários, Direito de Família, Saúde e processos. M. Mourão Advocacia — Av. Paulista, São Paulo.">
+  <link rel="canonical" href="https://mmouraoadvocacia.com.br/faq.html">
+  <link rel="icon" href="assets/logo/mmourao-favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Como funciona a primeira consulta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A primeira consulta é um momento de escuta e avaliação. Você apresenta sua situação e o Dr. Mario Mourão analisa os aspectos jurídicos relevantes, explica as possibilidades de atuação e responde suas dúvidas. A consulta pode ser realizada presencialmente na Av. Paulista ou por videoconferência."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O escritório atende em quais cidades?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "O escritório atende presencialmente em São Paulo (SP) e no Sul de Minas Gerais. Para clientes de outras regiões do Brasil, o atendimento é realizado por videoconferência, o que permite assessoria jurídica de qualidade independentemente da localização."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vocês fazem atendimento online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O escritório oferece atendimento por videoconferência para clientes em todo o Brasil. A maioria das etapas de um caso — consultas, alinhamentos estratégicos, revisão de documentos e acompanhamento processual — pode ser conduzida remotamente com a mesma qualidade do atendimento presencial."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como são cobrados os honorários?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Os honorários variam conforme a natureza e complexidade do caso. Podem ser fixos (valor determinado pelo serviço), por hora de trabalho ou por êxito (percentual sobre o resultado obtido), ou ainda uma combinação dessas modalidades. Os valores são apresentados de forma transparente após a análise inicial do caso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe possibilidade de honorários por êxito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim, em determinados tipos de ação — especialmente em contencioso indenizatório — é possível estruturar os honorários com base no êxito, ou seja, o advogado recebe uma parcela do valor obtido na ação. Essa possibilidade é analisada caso a caso, após avaliação jurídica da situação."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O divórcio pode ser feito de forma extrajudicial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Quando há consenso entre as partes e não existem filhos menores ou incapazes, o divórcio pode ser realizado diretamente em cartório, sem necessidade de processo judicial. É um procedimento mais rápido e menos custoso. O advogado é indispensável mesmo no divórcio extrajudicial para assessorar as partes e lavrar a escritura."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O plano negou meu procedimento. O que faço?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A negativa de cobertura pelo plano de saúde pode ser contestada judicialmente. Em muitos casos, é possível obter uma decisão liminar (de urgência) que obrigue o plano a autorizar o procedimento ainda durante o processo. O primeiro passo é reunir a documentação médica e o contrato do plano para análise jurídica."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quanto tempo dura um processo judicial?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A duração de um processo varia muito conforme a complexidade, a vara, o tribunal e o tipo de demanda. Ações simples podem ser resolvidas em meses; processos complexos podem levar anos. O escritório mantém o cliente informado sobre o andamento e adota todas as medidas processuais disponíveis para agilizar o trâmite."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso comparecer às audiências?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende do tipo de audiência. Audiências de instrução, nas quais o cliente pode ser ouvido como parte ou testemunha, geralmente requerem presença. Já audiências meramente processuais ou de conciliação podem, em muitos casos, dispensar o comparecimento pessoal do cliente, com o advogado representando seus interesses."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ── FAQ page-specific ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.in-view { opacity: 1; transform: none; }
+
+    /* Category filter */
+    .faq-filter { margin-bottom: 48px; }
+    .faq-filter .tag { cursor: pointer; }
+
+    /* FAQ category group */
+    .faq-group { margin-bottom: 48px; }
+    .faq-group:last-child { margin-bottom: 0; }
+    .faq-group-title {
+      font-size: .75rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--c-text-light);
+      padding-bottom: 16px; margin-bottom: 0;
+      border-bottom: 2px solid var(--c-accent);
+      display: inline-block;
+    }
+    .faq-group .faq-list { margin-top: 0; }
+
+    /* CTA section */
+    .cta-soft {
+      text-align: center; padding: 80px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-page { padding: 72px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ────────────────────────────────────────────── -->
+<header class="hdr">
+  <div class="container">
+    <div class="hdr-inner">
+      <a href="index.html" class="hdr-logo">
+        <img src="https://mmouraoadvocacia.com.br/wp-content/uploads/2026/06/mmourao-hz-azul.png"
+             alt="M. Mourão Advocacia"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;font-size:1.125rem;font-weight:800;color:var(--mar);letter-spacing:-.02em">M.Mourão <span style="font-weight:400;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase">Advocacia</span></span>
+      </a>
+
+      <nav class="hdr-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="o-escritorio.html">O Escritório</a></li>
+          <li class="has-dd">
+            <a href="areas-de-atuacao.html" class="dd-trigger">
+              Áreas
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="dd-menu">
+              <a href="areas-de-atuacao.html">Todas as Áreas</a>
+              <a href="templates/area.html">Direito de Família</a>
+              <a href="areas-de-atuacao.html">Ações Indenizatórias</a>
+              <a href="areas-de-atuacao.html">Direito da Saúde</a>
+              <a href="areas-de-atuacao.html">Contratos & Negócios</a>
+            </div>
+          </li>
+          <li><a href="regioes-atendidas.html">Regiões</a></li>
+          <li><a href="faq.html" class="active">FAQ</a></li>
+        </ul>
+        <div class="hdr-cta">
+          <a href="contato.html" class="btn btn--primary">Falar com Advogado</a>
+        </div>
+      </nav>
+
+      <button class="hdr-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Menu mobile">
+  <a href="index.html">Home</a>
+  <a href="o-escritorio.html">O Escritório</a>
+  <a href="areas-de-atuacao.html">Áreas de Atuação</a>
+  <a href="regioes-atendidas.html">Regiões Atendidas</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://wa.me/5511997096369" class="btn btn--wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- ─── HERO PAGE ────────────────────────────────────────── -->
+<section class="hero-page" aria-label="Perguntas Frequentes">
+  <div class="container">
+    <div class="eyebrow eyebrow--light">Tire suas dúvidas</div>
+    <h1 class="h-xl">Perguntas Frequentes</h1>
+    <p class="lead lead--light" style="max-width:600px;margin-top:16px">
+      Respostas às dúvidas mais comuns sobre assessoria jurídica, honorários e como funciona o atendimento no M. Mourão Advocacia.
+    </p>
+  </div>
+</section>
+
+<!-- ─── FAQ SECTION ──────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+
+    <!-- Category filter tags -->
+    <div class="faq-filter fade-up" role="navigation" aria-label="Filtrar por categoria">
+      <div class="tag-cloud">
+        <button class="tag active" data-filter="all">Todas</button>
+        <button class="tag" data-filter="geral">Geral</button>
+        <button class="tag" data-filter="honorarios">Honorários</button>
+        <button class="tag" data-filter="familia">Família</button>
+        <button class="tag" data-filter="saude">Saúde</button>
+        <button class="tag" data-filter="contencioso">Contencioso</button>
+        <button class="tag" data-filter="processo">Processo</button>
+      </div>
+    </div>
+
+    <!-- Geral -->
+    <div class="faq-group fade-up" data-category="geral">
+      <div class="faq-group-title">Geral</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona a primeira consulta?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              A primeira consulta é um momento de escuta e avaliação. Você apresenta sua situação e o Dr. Mario Mourão analisa os aspectos jurídicos relevantes, explica as possibilidades de atuação e responde suas dúvidas. A consulta pode ser realizada presencialmente na Av. Paulista ou por videoconferência — o formato é combinado conforme sua disponibilidade.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O escritório atende em quais cidades?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              O escritório atende presencialmente em São Paulo (SP), com sede na Av. Paulista, e no Sul de Minas Gerais. Para clientes de outras regiões do Brasil, o atendimento é realizado por videoconferência, o que permite assessoria jurídica de qualidade independentemente da localização.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês fazem atendimento online?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Sim. O escritório oferece atendimento por videoconferência para clientes em todo o Brasil. A maioria das etapas de um caso — consultas, alinhamentos estratégicos, revisão de documentos e acompanhamento processual — pode ser conduzida remotamente com a mesma qualidade e atenção do atendimento presencial.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso ir ao escritório pessoalmente?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Não necessariamente. Grande parte do atendimento pode ser feita de forma remota. Haverá situações específicas que podem requerer presença — como assinatura de documentos originais ou determinadas audiências — mas o escritório orienta caso a caso para minimizar deslocamentos desnecessários.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Honorários -->
+    <div class="faq-group fade-up" data-category="honorarios">
+      <div class="faq-group-title">Honorários</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como são cobrados os honorários?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Os honorários variam conforme a natureza e complexidade do caso. As modalidades mais comuns são: honorários fixos (valor definido pelo serviço prestado), honorários por hora de trabalho, ou honorários por êxito (percentual sobre o resultado obtido). Em alguns casos, há combinação dessas modalidades. Os valores são apresentados com total transparência após a avaliação do caso.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Existe possibilidade de honorários por êxito?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Sim, em determinados tipos de ação — especialmente em contencioso indenizatório — é possível estruturar os honorários com base no êxito, ou seja, o advogado recebe uma parcela do valor obtido ao final da ação. Essa possibilidade é analisada individualmente, após avaliação cuidadosa da situação jurídica apresentada.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Vocês fazem orçamento gratuito?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              É possível obter uma avaliação preliminar do caso antes de formalizar o contrato. Entre em contato por WhatsApp ou e-mail com um resumo da sua situação — o escritório retornará com uma primeira orientação e, se houver interesse mútuo, agendam-se uma consulta aprofundada e a proposta de honorários.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O que está incluso nos honorários?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Os honorários cobrem a atuação jurídica do advogado no caso — elaboração de peças processuais, acompanhamento do processo, comparecimento a audiências e orientação ao longo de todo o andamento. Custas processuais (taxas judiciais, diligências, etc.) são despesas distintas e são discutidas separadamente no momento da contratação.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Família -->
+    <div class="faq-group fade-up" data-category="familia">
+      <div class="faq-group-title">Direito de Família</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O divórcio pode ser feito de forma extrajudicial?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Sim. Quando há consenso entre as partes e não existem filhos menores ou incapazes, o divórcio pode ser realizado diretamente em cartório, por meio de escritura pública, sem necessidade de processo judicial. É um procedimento mais rápido e menos oneroso. O advogado é indispensável mesmo no divórcio extrajudicial para assessorar as partes, redigir e revisar a escritura.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo demora um inventário?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              O prazo varia muito. O inventário extrajudicial (em cartório), quando há consenso e todos os herdeiros são maiores, pode ser concluído em semanas. Já o inventário judicial pode levar meses ou anos, dependendo da complexidade do espólio, da existência de disputas entre herdeiros e do volume de trâmites processuais. A orientação do advogado desde o início ajuda a escolher o caminho mais eficiente.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O que é uma holding familiar?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Uma holding familiar é uma pessoa jurídica constituída para concentrar e administrar o patrimônio de uma família — imóveis, participações societárias e outros bens. Ela facilita o planejamento sucessório (transmissão de bens com menor custo tributário), protege o patrimônio e organiza a governança familiar. É uma estrutura recomendada para famílias com patrimônio relevante que desejam planejar a sucessão com antecedência.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como funciona a guarda compartilhada?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Na guarda compartilhada, ambos os pais exercem em conjunto a autoridade parental e as responsabilidades sobre a vida dos filhos — decisões sobre educação, saúde, lazer e criação são tomadas de forma compartilhada. A residência do filho pode ser alternada ou fixada em um dos lares, conforme a rotina e o melhor interesse da criança. Desde 2014, a guarda compartilhada é a regra no Brasil quando não há acordo diferente.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Saúde -->
+    <div class="faq-group fade-up" data-category="saude">
+      <div class="faq-group-title">Direito da Saúde</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O plano negou meu procedimento. O que faço?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              A negativa de cobertura pelo plano de saúde pode ser contestada administrativa e judicialmente. O primeiro passo é reunir a documentação médica (pedido do médico, relatório clínico, laudos) e o contrato do plano. Com esses documentos, o advogado analisa a legalidade da negativa e, se pertinente, ingressa com ação judicial — que pode incluir pedido de liminar para autorização imediata do procedimento.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            É possível obter liminar contra plano de saúde?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Sim. Quando há urgência médica comprovada, é possível requerer ao juiz uma decisão liminar (tutela de urgência) que obrigue o plano a autorizar o procedimento antes mesmo do julgamento final da ação. Trata-se de uma medida eficaz em casos de negativa indevida de cobertura para cirurgias, internações ou tratamentos urgentes. O sucesso depende da qualidade da documentação médica e da fundamentação jurídica apresentada.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O plano pode me excluir indevidamente?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Não. A exclusão de beneficiário de plano de saúde deve seguir regras específicas da ANS e do contrato. Exclusões abusivas — especialmente de idosos, portadores de doenças crônicas ou por inadimplência sem notificação prévia — são nulas e podem ser revertidas judicialmente. Também é possível pleitear indenização por danos morais e materiais causados pela exclusão irregular.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Contencioso -->
+    <div class="faq-group fade-up" data-category="contencioso">
+      <div class="faq-group-title">Contencioso</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quanto tempo dura um processo judicial?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              A duração de um processo varia muito conforme a complexidade da demanda, a vara e tribunal competente, o volume de processos no judiciário local e as diligências necessárias. Ações simples em Juizado Especial podem ser resolvidas em meses; processos nas varas cíveis ou tribunais podem levar anos. O escritório adota todas as medidas processuais disponíveis para agilizar o trâmite e mantém o cliente atualizado durante todo o percurso.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            O que são danos morais?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Danos morais são lesões à esfera íntima, honra, dignidade ou bem-estar psicológico de uma pessoa, causadas por ato ilícito de terceiro. Diferentemente dos danos materiais (que envolvem prejuízo financeiro concreto), os danos morais compensam o sofrimento, a humilhação ou o constrangimento sofridos. Situações comuns incluem cobrança indevida com negativação, falha em prestação de serviço, erro médico, discriminação e exposição indevida de dados pessoais.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quando posso entrar com ação por erro médico?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              A ação por erro médico é cabível quando há conduta culposa do profissional de saúde — imprudência, negligência ou imperícia — que cause dano ao paciente. Isso pode incluir diagnóstico equivocado, cirurgia mal conduzida, prescrição inadequada ou falha em informar o paciente sobre riscos. A responsabilidade pode ser do médico, do hospital ou do plano de saúde, dependendo das circunstâncias. A análise da documentação médica é o ponto de partida essencial.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Processo -->
+    <div class="faq-group fade-up" data-category="processo">
+      <div class="faq-group-title">Processo</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Preciso comparecer às audiências?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              Depende do tipo de audiência. Audiências de instrução, nas quais o cliente pode ser ouvido como parte ou testemunha, geralmente requerem presença. Audiências meramente processuais ou de conciliação podem, em muitos casos, ser conduzidas pelo advogado sem a presença do cliente. O escritório orienta com antecedência sobre cada audiência designada e prepara o cliente para os casos em que a presença for necessária.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Como acompanho o andamento do meu processo?
+            <span class="icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+          </button>
+          <div class="faq-a" role="region">
+            <div class="faq-a-inner">
+              O escritório mantém o cliente informado sobre as movimentações relevantes do processo por WhatsApp ou e-mail. Além disso, o cliente pode acompanhar publicamente o andamento nos portais dos tribunais (e-SAJ, PJe, TJSP, etc.) pelo número do processo. A qualquer momento, o cliente pode solicitar uma atualização diretamente ao Dr. Mario Mourão.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ─── AINDA COM DÚVIDAS ────────────────────────────────── -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="cta-soft fade-up">
+      <div class="eyebrow" style="justify-content:center">Atendimento personalizado</div>
+      <h2 class="h-lg" style="margin-bottom:16px">Sua situação é única.</h2>
+      <p class="lead" style="max-width:520px;margin:0 auto 40px">
+        As respostas acima têm caráter informativo geral. Para uma avaliação específica do seu caso, entre em contato — sem compromisso.
+      </p>
+      <div class="flex-center" style="gap:16px;flex-wrap:wrap">
+        <a href="https://wa.me/5511997096369?text=Olá,%20tenho%20uma%20dúvida%20jurídica%20e%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar por WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn--outline btn--lg">Enviar mensagem</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────── -->
+<footer class="ftr">
+  <div class="container">
+    <div class="ftr-grid">
+      <div>
+        <img src="assets/logo/mmourao-hz-branco.png" alt="M. Mourão Advocacia"
+             onerror="this.style.display='none'">
+        <p class="ftr-about" style="margin-top:20px">Escritório boutique de advocacia com atuação estratégica em Direito de Família, Ações Indenizatórias, Direito da Saúde e Empresarial.</p>
+        <p class="ftr-tagline">Integridade · Técnica · Acolhimento</p>
+      </div>
+      <div class="ftr-col">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="templates/area.html">Direito de Família</a></li>
+          <li><a href="areas-de-atuacao.html">Ações Indenizatórias</a></li>
+          <li><a href="areas-de-atuacao.html">Direito da Saúde</a></li>
+          <li><a href="areas-de-atuacao.html">Contratos</a></li>
+          <li><a href="areas-de-atuacao.html">Societário</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Escritório</h4>
+        <ul>
+          <li><a href="o-escritorio.html">O Escritório</a></li>
+          <li><a href="regioes-atendidas.html">Regiões Atendidas</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Contato</h4>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Av. Paulista, 1636, 7º andar<br>São Paulo – SP</span>
+        </div>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <span>(11) 99709-6369<br>(11) 3197-4564</span>
+        </div>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>advocacia@mariomourao.adv.br</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <span>© 2026 M. Mourão Advocacia · OAB/SP 182.536</span>
+      <span>Desenvolvido por <a href="https://localrankbrasil.com.br" style="color:rgba(255,255,255,.4)">Local Rank Brasil</a></span>
+    </div>
+  </div>
+  <div class="ftr-disclaimer">
+    <div class="container">
+      Este website tem caráter exclusivamente informativo e não constitui oferta de serviços jurídicos, consulta jurídica ou formação de vínculo profissional. As informações aqui contidas não substituem a orientação de um advogado para casos concretos. Advocacia regulamentada pela OAB, em conformidade com o Código de Ética e Disciplina e o Provimento nº 94/2000 do Conselho Federal da OAB.
+    </div>
+  </div>
+</footer>
+
+<!-- ─── WHATSAPP FLOAT ──────────────────────────────────── -->
+<a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Fale conosco</span>
+</a>
+
+<script src="js/main.js"></script>
+<script>
+  /* ── FAQ category filter ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.faq-filter .tag');
+    const groups = document.querySelectorAll('.faq-group');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        groups.forEach(group => {
+          if (filter === 'all' || group.dataset.category === filter) {
+            group.style.display = '';
+          } else {
+            group.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html>

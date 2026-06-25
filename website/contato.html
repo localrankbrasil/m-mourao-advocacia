@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | M. Mourão Advocacia</title>
+  <meta name="description" content="Entre em contato com M. Mourão Advocacia. WhatsApp (11) 99709-6369, email advocacia@mariomourao.adv.br. Av. Paulista 1636, 7º andar, São Paulo.">
+  <link rel="canonical" href="https://mmouraoadvocacia.com.br/contato.html">
+  <link rel="icon" href="assets/logo/mmourao-favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* ── Page-specific ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.in-view { opacity: 1; transform: none; }
+
+    /* Contact layout */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--mar);
+      border-radius: var(--r-md);
+      padding: 48px 40px;
+    }
+    .form-card h2 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .form-card > p {
+      color: rgba(255,255,255,.65);
+      font-size: .9375rem;
+      margin-bottom: 32px;
+      line-height: 1.65;
+    }
+
+    /* Info side */
+    .info-side { display: flex; flex-direction: column; gap: 24px; }
+
+    .info-block {
+      background: var(--espuma);
+      border-radius: var(--r-md);
+      padding: 28px 32px;
+    }
+    .info-block h3 {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--c-text-light);
+      margin-bottom: 20px;
+    }
+
+    .hours-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: .9rem;
+      color: var(--c-text-mid);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:last-child { font-weight: 600; color: var(--c-text); }
+
+    .oab-note {
+      background: rgba(41,80,204,.06);
+      border: 1px solid rgba(41,80,204,.15);
+      border-radius: var(--r);
+      padding: 14px 16px;
+      font-size: .8125rem;
+      color: var(--c-text-mid);
+      line-height: 1.6;
+    }
+    .oab-note strong { color: var(--c-text); }
+
+    /* FAQ quick cards */
+    .faq-quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .faq-quick-card {
+      background: #fff;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 24px;
+      transition: box-shadow .2s, transform .2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-quick-card:hover {
+      box-shadow: var(--sh-md);
+      transform: translateY(-3px);
+    }
+    .faq-quick-card h4 {
+      font-size: .9375rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--c-text);
+    }
+    .faq-quick-card p {
+      font-size: .875rem;
+      color: var(--c-text-mid);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .faq-quick-card a {
+      font-size: .8125rem;
+      font-weight: 600;
+      color: var(--c-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap .2s;
+    }
+    .faq-quick-card a:hover { gap: 8px; }
+
+    /* Form success state */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 48px 0;
+      color: #fff;
+    }
+    .form-success svg { color: var(--c-wa); margin: 0 auto 16px; }
+    .form-success h3 { color: #fff; margin-bottom: 8px; }
+    .form-success p { color: rgba(255,255,255,.65); }
+
+    @media (max-width: 1024px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .faq-quick-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .form-card { padding: 32px 24px; }
+      .faq-quick-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── HEADER ────────────────────────────────────────────── -->
+<header class="hdr">
+  <div class="container">
+    <div class="hdr-inner">
+      <a href="index.html" class="hdr-logo">
+        <img src="https://mmouraoadvocacia.com.br/wp-content/uploads/2026/06/mmourao-hz-azul.png"
+             alt="M. Mourão Advocacia"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none;font-size:1.125rem;font-weight:800;color:var(--mar);letter-spacing:-.02em">M.Mourão <span style="font-weight:400;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase">Advocacia</span></span>
+      </a>
+
+      <nav class="hdr-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="o-escritorio.html">O Escritório</a></li>
+          <li class="has-dd">
+            <a href="areas-de-atuacao.html" class="dd-trigger">
+              Áreas
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="dd-menu">
+              <a href="areas-de-atuacao.html">Todas as Áreas</a>
+              <a href="templates/area.html">Direito de Família</a>
+              <a href="areas-de-atuacao.html">Ações Indenizatórias</a>
+              <a href="areas-de-atuacao.html">Direito da Saúde</a>
+              <a href="areas-de-atuacao.html">Contratos & Negócios</a>
+            </div>
+          </li>
+          <li><a href="regioes-atendidas.html">Regiões</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+        <div class="hdr-cta">
+          <a href="contato.html" class="btn btn--primary">Falar com Advogado</a>
+        </div>
+      </nav>
+
+      <button class="hdr-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Menu mobile">
+  <a href="index.html">Home</a>
+  <a href="o-escritorio.html">O Escritório</a>
+  <a href="areas-de-atuacao.html">Áreas de Atuação</a>
+  <a href="regioes-atendidas.html">Regiões Atendidas</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://wa.me/5511997096369" class="btn btn--wa">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- ─── HERO ───────────────────────────────────────────────── -->
+<section class="hero-page" aria-label="Contato">
+  <div class="container">
+    <div class="eyebrow eyebrow--light">Fale Conosco</div>
+    <h1 class="h-xl">Entre em Contato</h1>
+    <p class="lead lead--light" style="max-width:600px;margin-top:16px">Descreva sua situação e entraremos em contato para agendar uma conversa inicial, sem compromisso.</p>
+  </div>
+</section>
+
+<!-- ─── CONTACT LAYOUT ─────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="contact-layout fade-up">
+
+      <!-- LEFT: Form -->
+      <div class="form-card">
+        <h2>Envie sua mensagem</h2>
+        <p>Preencha o formulário abaixo. Retornamos em até 1 dia útil.</p>
+
+        <form class="js-form" action="#" method="post" novalidate>
+          <div class="form-grid">
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="nome">Nome completo</label>
+              <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="telefone">Telefone / WhatsApp</label>
+              <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="area">Área do Direito</label>
+              <select class="form-select" id="area" name="area">
+                <option value="" disabled selected>Selecione a área</option>
+                <option value="familia">Direito de Família</option>
+                <option value="indenizatorio">Ações Indenizatórias</option>
+                <option value="saude">Direito da Saúde</option>
+                <option value="contratos">Contratos</option>
+                <option value="societario">Societário</option>
+                <option value="imobiliario">Imobiliário</option>
+                <option value="agronegocio">Agronegócio</option>
+                <option value="consumo">Consumo</option>
+                <option value="tributario">Tributário</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="mensagem">Descreva sua situação</label>
+              <textarea class="form-textarea" id="mensagem" name="mensagem" rows="5" placeholder="Conte brevemente o que está acontecendo. Todas as informações são tratadas com total sigilo." required></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn--wa" style="width:100%;justify-content:center;font-size:1rem;padding:16px 28px">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                Enviar Mensagem
+              </button>
+              <p class="form-note" style="text-align:center;margin-top:12px">Suas informações são confidenciais e protegidas pelo sigilo profissional.</p>
+            </div>
+
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h3>Mensagem enviada!</h3>
+          <p>Retornaremos em breve. Se preferir, entre em contato diretamente pelo WhatsApp.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Info -->
+      <div class="info-side">
+
+        <div class="info-block">
+          <h3>Informações de Contato</h3>
+
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Endereço</div>
+              <div class="contact-value">Av. Paulista, 1636, 7º andar<br>Bela Vista, São Paulo – SP<br>CEP 01310-200</div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value"><a href="https://wa.me/5511997096369" target="_blank" rel="noopener">(11) 99709-6369</a></div>
+            </div>
+          </div>
+
+          <div class="contact-row">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Telefone</div>
+              <div class="contact-value">(11) 99709-6369<br>(11) 3197-4564</div>
+            </div>
+          </div>
+
+          <div class="contact-row" style="margin-bottom:0">
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:advocacia@mariomourao.adv.br">advocacia@mariomourao.adv.br</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <h3>Horário de Atendimento</h3>
+          <div class="hours-grid">
+            <div class="hours-row">
+              <span>Segunda a Sexta</span>
+              <span>9h – 18h</span>
+            </div>
+            <div class="hours-row">
+              <span>Sábado</span>
+              <span>Sob agendamento</span>
+            </div>
+            <div class="hours-row">
+              <span>Domingo</span>
+              <span>Fechado</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="oab-note">
+          <strong>Sigilo e ética profissional.</strong> Toda comunicação é tratada com absoluta confidencialidade, nos termos do Código de Ética e Disciplina da OAB e do sigilo profissional inerente ao exercício da advocacia. OAB/SP 182.536.
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MAPA ────────────────────────────────────────────────── -->
+<section class="section--soft section--sm">
+  <div class="container">
+    <div class="sec-hdr fade-up" style="margin-bottom:32px">
+      <div class="eyebrow">Localização</div>
+      <h2 class="h-md">Av. Paulista, 1636 — São Paulo</h2>
+    </div>
+    <div class="map-wrap fade-up">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0975765930366!2d-46.65390492374946!3d-23.564059961397893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59b6b80e2b53%3A0x88cf8bf38f7e04af!2sAv.%20Paulista%2C%201636%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-200!5e0!3m2!1spt-BR!2sbr!4v1718000000000!5m2!1spt-BR!2sbr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização M. Mourão Advocacia — Av. Paulista 1636, São Paulo">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ QUICK LINKS ────────────────────────────────────── -->
+<section class="section--sm section">
+  <div class="container">
+    <div class="sec-hdr fade-up" style="margin-bottom:32px">
+      <div class="eyebrow">Dúvidas Frequentes</div>
+      <h2 class="h-md">Perguntas mais comuns</h2>
+    </div>
+    <div class="faq-quick-grid fade-up">
+
+      <div class="faq-quick-card">
+        <h4>Como funciona a primeira consulta?</h4>
+        <p>A primeira conversa serve para entender sua situação. Não há compromisso e o Dr. Mario Mourão avalia pessoalmente cada caso antes de qualquer proposta.</p>
+        <a href="faq.html">Ver resposta completa <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="faq-quick-card">
+        <h4>O escritório atende online?</h4>
+        <p>Sim. Realizamos atendimento por videoconferência para clientes em qualquer cidade do Brasil, com a mesma atenção e qualidade do atendimento presencial.</p>
+        <a href="faq.html">Ver resposta completa <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="faq-quick-card">
+        <h4>Quais são os honorários?</h4>
+        <p>Os honorários variam conforme a complexidade e o tipo de matéria. Apresentamos uma proposta clara após a avaliação inicial do caso, sem surpresas.</p>
+        <a href="faq.html">Ver resposta completa <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────── -->
+<footer class="ftr">
+  <div class="container">
+    <div class="ftr-grid">
+      <div>
+        <img src="assets/logo/mmourao-hz-branco.png" alt="M. Mourão Advocacia"
+             onerror="this.style.display='none'">
+        <p class="ftr-about" style="margin-top:20px">Escritório boutique de advocacia com atuação estratégica em Direito de Família, Ações Indenizatórias, Direito da Saúde e Empresarial.</p>
+        <p class="ftr-tagline">Integridade · Técnica · Acolhimento</p>
+      </div>
+      <div class="ftr-col">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="templates/area.html">Direito de Família</a></li>
+          <li><a href="areas-de-atuacao.html">Ações Indenizatórias</a></li>
+          <li><a href="areas-de-atuacao.html">Direito da Saúde</a></li>
+          <li><a href="areas-de-atuacao.html">Contratos</a></li>
+          <li><a href="areas-de-atuacao.html">Societário</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Escritório</h4>
+        <ul>
+          <li><a href="o-escritorio.html">O Escritório</a></li>
+          <li><a href="regioes-atendidas.html">Regiões Atendidas</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>Contato</h4>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span>Av. Paulista, 1636, 7º andar<br>São Paulo – SP</span>
+        </div>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          <span>(11) 99709-6369<br>(11) 3197-4564</span>
+        </div>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>advocacia@mariomourao.adv.br</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ftr-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <span>© 2026 M. Mourão Advocacia · OAB/SP 182.536</span>
+      <span>Desenvolvido por <a href="https://localrankbrasil.com.br" style="color:rgba(255,255,255,.4)">Local Rank Brasil</a></span>
+    </div>
+  </div>
+  <div class="ftr-disclaimer">
+    <div class="container">
+      Este website tem caráter exclusivamente informativo e não constitui oferta de serviços jurídicos, consulta jurídica ou formação de vínculo profissional. As informações aqui contidas não substituem a orientação de um advogado para casos concretos. Advocacia regulamentada pela OAB, em conformidade com o Código de Ética e Disciplina e o Provimento nº 94/2000 do Conselho Federal da OAB.
+    </div>
+  </div>
+</footer>
+
+<!-- ─── WHATSAPP FLOAT ──────────────────────────────────────── -->
+<a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Fale conosco</span>
+</a>
+
+<script src="js/main.js"></script>
+</body>
+</html>
