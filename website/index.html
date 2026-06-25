@@ -68,51 +68,152 @@
     .fade-up:nth-child(4) { transition-delay: .3s; }
 
     /* ══════════════════════════════════════
-       SECTION 1 — HERO
+       SECTION 1 — HERO (MÉTODO BIFE)
+       Base · Iluminação · Foto · Estrutura
        ══════════════════════════════════════ */
+
+    /* ── Camada 1: Base ── */
     .s-hero {
-      background: #0c1228;
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       position: relative;
+      min-height: 100svh;
+      background: #090e1e;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 90px;
     }
 
-    /* Subtle noise texture overlay */
-    .s-hero::before {
-      content: '';
-      position: absolute; inset: 0; z-index: 0;
-      background-image:
-        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(41,80,204,.12) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 80% at 80% 30%, rgba(21,30,67,.4) 0%, transparent 60%);
+    /* ── Camada 2: Iluminação ── */
+    .hero-lights {
+      position: absolute; inset: 0; z-index: 1;
       pointer-events: none;
     }
+    .hl { position: absolute; pointer-events: none; }
 
-    .hero-left {
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 120px 64px 80px 0;
+    /* Spotlight quente — onde o advogado está (direita) */
+    .hl-spotlight {
+      top: -20%; right: 0%;
+      width: 75vw; height: 100vh;
+      background: radial-gradient(ellipse at 65% 35%,
+        rgba(180,150,95,.17) 0%,
+        rgba(140,110,70,.07) 40%,
+        transparent 68%);
+      filter: blur(60px);
+    }
+    /* Glow Céu — azul accent esquerda */
+    .hl-ceu {
+      bottom: -10%; left: -8%;
+      width: 55vw; height: 60vh;
+      background: radial-gradient(ellipse at center,
+        rgba(41,80,204,.13) 0%,
+        transparent 65%);
+      filter: blur(50px);
+    }
+    /* Feixe de luz diagonal — lens flare */
+    .hl-ray {
+      top: 5%; right: 28%;
+      width: 2px; height: 65%;
+      background: linear-gradient(to bottom,
+        rgba(210,185,130,.14) 0%,
+        rgba(210,185,130,.05) 60%,
+        transparent 100%);
+      transform: rotate(22deg);
+      transform-origin: top center;
+      filter: blur(18px);
+      border-radius: 2px;
+    }
+    /* Segundo feixe — paralelo, mais suave */
+    .hl-ray2 {
+      top: 0; right: 36%;
+      width: 1px; height: 50%;
+      background: linear-gradient(to bottom,
+        rgba(210,185,130,.08) 0%,
+        transparent 100%);
+      transform: rotate(22deg);
+      transform-origin: top center;
+      filter: blur(12px);
+    }
+    /* Vinheta nas bordas */
+    .hl-vignette {
+      inset: 0; width: 100%; height: 100%;
+      background: radial-gradient(ellipse at 40% 50%,
+        transparent 45%, rgba(9,14,30,.65) 100%);
+      filter: none;
     }
 
-    /* SEO H1 — visible but visually small */
+    /* ── Camada 3: Foto BIFE ──
+       Para produção: use PNG com fundo removido (remove.bg / Photoshop)
+       Arquivo: assets/fotos/mario-cutout.png
+       O gradiente abaixo simula o recorte com JPG ── */
+    .hero-bife-photo {
+      position: absolute;
+      right: -1%;
+      bottom: 0;
+      height: 96%;
+      width: 52%;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-bife-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* Blend gradient — dissolve a borda esquerda no background escuro */
+    .hero-bife-photo::before {
+      content: '';
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(to right,
+          #090e1e 0%,
+          rgba(9,14,30,.82) 12%,
+          rgba(9,14,30,.45) 32%,
+          rgba(9,14,30,.12) 52%,
+          transparent 68%),
+        linear-gradient(to top,
+          #090e1e 0%,
+          rgba(9,14,30,.6) 10%,
+          rgba(9,14,30,.1) 22%,
+          transparent 32%),
+        linear-gradient(to left,
+          rgba(9,14,30,.3) 0%,
+          transparent 20%);
+    }
+    /* Suave luz quente sobre a foto (Iluminação sobre o sujeito) */
+    .hero-bife-photo::after {
+      content: '';
+      position: absolute; inset: 0; z-index: 2;
+      background: radial-gradient(ellipse at 70% 30%,
+        rgba(200,170,100,.07) 0%, transparent 60%);
+      mix-blend-mode: screen;
+    }
+
+    /* ── Camada 4: Conteúdo ── */
+    .hero-text {
+      position: relative; z-index: 3;
+      max-width: 560px;
+    }
+
+    /* SEO H1 — visível mas visualmente pequeno */
     .hero-seo-h1 {
       font-size: .8125rem;
       font-weight: 500;
       letter-spacing: .1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,.35);
+      color: rgba(255,255,255,.32);
       margin-bottom: 28px;
       display: flex; align-items: center; gap: 12px;
     }
     .hero-seo-h1::before {
       content: '';
-      display: block; width: 32px; height: 1px;
+      display: block; width: 28px; height: 1px;
       background: rgba(255,255,255,.2);
+      flex-shrink: 0;
     }
 
     .hero-headline {
-      font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+      font-size: clamp(2.25rem, 3.5vw, 3.5rem);
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -.03em;
@@ -127,76 +228,48 @@
     .hero-sub {
       font-size: 1rem;
       line-height: 1.75;
-      color: rgba(255,255,255,.6);
+      color: rgba(255,255,255,.58);
       max-width: 480px;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
     }
 
-    .hero-ctas {
-      display: flex; gap: 14px; flex-wrap: wrap;
-    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 
-    /* Hero right — video */
-    .hero-right {
-      position: relative; z-index: 1;
+    /* Botão de vídeo — sutil, inline com os CTAs ou abaixo */
+    .hero-video-btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: none; border: none; cursor: pointer;
+      color: rgba(255,255,255,.5);
+      font-size: .875rem; font-weight: 500;
+      font-family: inherit;
+      padding: 0; margin-top: 20px;
+      transition: color .25s;
+      text-align: left;
+    }
+    .hero-video-btn:hover { color: rgba(255,255,255,.85); }
+    .hvb-ring {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.22);
       display: flex; align-items: center; justify-content: center;
-      padding: 80px 0 80px 64px;
+      flex-shrink: 0;
+      transition: border-color .25s, background .25s;
     }
-
-    .video-frame {
-      position: relative; width: 100%; max-width: 520px;
-      border-radius: 12px; overflow: hidden;
-      box-shadow: 0 32px 80px rgba(0,0,0,.5);
-      aspect-ratio: 16/9;
-      cursor: pointer;
-      background: #0a0f1e;
-    }
-    .video-frame-img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
-      transition: transform .4s ease, opacity .3s ease;
-    }
-    .video-frame:hover .video-frame-img { transform: scale(1.03); opacity: .85; }
-
-    .video-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(21,30,67,.3), rgba(0,0,0,.2));
-    }
-    .video-play-btn {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 72px; height: 72px;
-      background: #fff;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,.35);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .video-frame:hover .video-play-btn {
-      transform: translate(-50%, -50%) scale(1.08);
-      box-shadow: 0 12px 40px rgba(0,0,0,.45);
-    }
-    .video-play-btn svg { margin-left: 4px; color: var(--mar); }
-
-    .video-label {
-      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-      white-space: nowrap;
-      background: rgba(0,0,0,.55); backdrop-filter: blur(8px);
-      color: rgba(255,255,255,.85); font-size: .8125rem; font-weight: 500;
-      padding: 6px 16px; border-radius: 100px;
-      border: 1px solid rgba(255,255,255,.12);
+    .hvb-ring svg { margin-left: 3px; }
+    .hero-video-btn:hover .hvb-ring {
+      border-color: rgba(255,255,255,.5);
+      background: rgba(255,255,255,.06);
     }
 
     .hero-trust {
       display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
-      margin-top: 36px; padding-top: 32px;
-      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 40px; padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.07);
     }
     .trust-item {
       display: flex; align-items: center; gap: 8px;
-      font-size: .8125rem; color: rgba(255,255,255,.45);
+      font-size: .8125rem; color: rgba(255,255,255,.38);
     }
-    .trust-item svg { color: rgba(255,255,255,.25); }
+    .trust-item svg { color: rgba(255,255,255,.22); flex-shrink: 0; }
 
     /* ── Vimeo lightbox ── */
     .lightbox {
@@ -573,9 +646,9 @@
 
     /* Responsive */
     @media (max-width: 1100px) {
-      .s-hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 100px 24px 40px; }
-      .hero-right { padding: 0 24px 64px; }
+      /* Hero BIFE: foto some em telas menores */
+      .hero-bife-photo { width: 60%; opacity: .35; }
+      .s-hero { padding: 120px 0 80px; }
       .areas-home-grid { grid-template-columns: repeat(2, 1fr); }
       .area-home-card { border-bottom: 1px solid var(--c-border); }
       .sobre-grid { grid-template-columns: 1fr; }
@@ -591,7 +664,16 @@
       .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
+      /* Hero BIFE mobile: foto como textura de fundo apenas */
+      .s-hero { padding: 100px 0 72px; }
+      .hero-bife-photo { width: 100%; right: 0; opacity: .18; }
+      .hero-bife-photo::before {
+        background:
+          linear-gradient(to right, #090e1e 0%, rgba(9,14,30,.9) 40%, rgba(9,14,30,.6) 100%),
+          linear-gradient(to top, #090e1e 0%, transparent 35%);
+      }
       .hero-headline { font-size: 2.25rem; }
+      .hero-text { max-width: 100%; }
       .areas-home-grid { grid-template-columns: 1fr; }
       .quando-grid { grid-template-columns: repeat(2, 1fr); }
       .reviews-grid { grid-template-columns: 1fr; }
@@ -653,13 +735,31 @@
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
-     SEÇÃO 1 — HERO
+     SEÇÃO 1 — HERO (MÉTODO BIFE)
      ══════════════════════════════════════════════════════════ -->
 <section class="s-hero" aria-label="Apresentação">
-  <div class="container" style="display:contents">
 
-    <!-- Left: text -->
-    <div class="hero-left" style="padding-left:max(24px, calc((100vw - 1200px)/2 + 24px))">
+  <!-- Camada 2: Iluminação -->
+  <div class="hero-lights" aria-hidden="true">
+    <div class="hl hl-spotlight"></div>
+    <div class="hl hl-ceu"></div>
+    <div class="hl hl-ray"></div>
+    <div class="hl hl-ray2"></div>
+    <div class="hl hl-vignette"></div>
+  </div>
+
+  <!-- Camada 3: Foto BIFE
+       Produção: substituir por assets/fotos/mario-cutout.png (fundo removido)
+       Para recorte profissional use remove.bg ou Adobe Firefly -->
+  <div class="hero-bife-photo" aria-hidden="true">
+    <img src="assets/fotos/mario-01.jpg"
+         alt="">
+  </div>
+
+  <!-- Camada 4: Conteúdo -->
+  <div class="container" style="position:relative;z-index:3">
+    <div class="hero-text">
+
       <h1 class="hero-seo-h1">Escritório de Advocacia na Avenida Paulista</h1>
 
       <p class="hero-headline">
@@ -681,6 +781,14 @@
         <a href="o-escritorio.html" class="btn btn--outline-light btn--lg">Conheça o Escritório</a>
       </div>
 
+      <!-- Vídeo: trigger sutil, não compete com a foto -->
+      <button class="hero-video-btn" id="videoThumb" aria-label="Assistir vídeo institucional do Dr. Mario Mourão">
+        <span class="hvb-ring">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polygon points="6,3 20,12 6,21" fill="rgba(255,255,255,.7)"/></svg>
+        </span>
+        <span>Assistir vídeo institucional</span>
+      </button>
+
       <div class="hero-trust">
         <div class="trust-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -699,23 +807,10 @@
           Atendimento online disponível
         </div>
       </div>
-    </div>
 
-    <!-- Right: video -->
-    <div class="hero-right" style="padding-right:max(24px, calc((100vw - 1200px)/2 + 24px))">
-      <div class="video-frame" id="videoThumb" role="button" tabindex="0" aria-label="Assistir vídeo institucional">
-        <img class="video-frame-img"
-             src="assets/fotos/mario-04.jpg"
-             alt="Dr. Mario Mourão — vídeo institucional M. Mourão Advocacia">
-        <div class="video-overlay"></div>
-        <div class="video-play-btn">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="#151e43"/></svg>
-        </div>
-        <div class="video-label">Vídeo Institucional · Dr. Mario Mourão</div>
-      </div>
     </div>
-
   </div>
+
 </section>
 
 <!-- Vimeo lightbox -->
