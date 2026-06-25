@@ -147,10 +147,10 @@
        O gradiente abaixo simula o recorte com JPG ── */
     .hero-bife-photo {
       position: absolute;
-      right: -1%;
+      right: -2%;
       bottom: 0;
       height: 96%;
-      width: 52%;
+      width: 68%;          /* sangra mais à esquerda, igual ao Nicolet */
       z-index: 2;
       pointer-events: none;
     }
@@ -160,39 +160,40 @@
       object-position: center top;
       display: block;
     }
-    /* Blend gradient — dissolve a borda esquerda no background escuro */
+    /* Blend: escuro forte na esquerda, foto aparece apenas na metade direita */
     .hero-bife-photo::before {
       content: '';
       position: absolute; inset: 0; z-index: 1;
       background:
         linear-gradient(to right,
           #090e1e 0%,
-          rgba(9,14,30,.82) 12%,
-          rgba(9,14,30,.45) 32%,
-          rgba(9,14,30,.12) 52%,
-          transparent 68%),
+          rgba(9,14,30,.96) 18%,
+          rgba(9,14,30,.78) 34%,
+          rgba(9,14,30,.38) 52%,
+          rgba(9,14,30,.08) 68%,
+          transparent 80%),
         linear-gradient(to top,
           #090e1e 0%,
-          rgba(9,14,30,.6) 10%,
-          rgba(9,14,30,.1) 22%,
-          transparent 32%),
+          rgba(9,14,30,.7) 8%,
+          rgba(9,14,30,.1) 20%,
+          transparent 30%),
         linear-gradient(to left,
-          rgba(9,14,30,.3) 0%,
-          transparent 20%);
+          rgba(9,14,30,.25) 0%,
+          transparent 18%);
     }
-    /* Suave luz quente sobre a foto (Iluminação sobre o sujeito) */
+    /* Luz quente sobre o advogado */
     .hero-bife-photo::after {
       content: '';
       position: absolute; inset: 0; z-index: 2;
-      background: radial-gradient(ellipse at 70% 30%,
-        rgba(200,170,100,.07) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 75% 30%,
+        rgba(200,170,100,.07) 0%, transparent 55%);
       mix-blend-mode: screen;
     }
 
     /* ── Camada 4: Conteúdo ── */
     .hero-text {
       position: relative; z-index: 3;
-      max-width: 560px;
+      max-width: 640px;    /* mais largura para o texto respirar */
     }
 
     /* SEO H1 — visível mas visualmente pequeno */
