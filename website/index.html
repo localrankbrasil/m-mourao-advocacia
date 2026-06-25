@@ -3,10 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M. Mourão Advocacia | Assessoria Jurídica Personalizada em São Paulo</title>
-  <meta name="description" content="Assessoria jurídica personalizada com mais de 26 anos de experiência. Direito de Família, Saúde, Contencioso e Empresarial. Av. Paulista, São Paulo.">
+  <title>Escritório de Advocacia na Avenida Paulista | M. Mourão Advocacia</title>
+  <meta name="description" content="Escritório de advocacia boutique na Avenida Paulista, São Paulo. Mais de 26 anos de experiência jurídica em Direito de Família, Ações Indenizatórias, Direito da Saúde e Assessoria Empresarial. Dr. Mario Mourão — OAB/SP 182.536.">
   <link rel="canonical" href="https://mmouraoadvocacia.com.br/">
   <link rel="icon" href="assets/logo/mmourao-favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="M. Mourão Advocacia | Escritório na Avenida Paulista">
+  <meta property="og:description" content="Mais de 26 anos de experiência jurídica. Atendimento personalizado em São Paulo e Sul de Minas Gerais.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mmouraoadvocacia.com.br/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,158 +20,584 @@
   <link rel="stylesheet" href="css/main.css">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"LegalService","name":"M. Mourão Advocacia","url":"https://mmouraoadvocacia.com.br","telephone":"+55-11-99709-6369","email":"advocacia@mariomourao.adv.br","address":{"@type":"PostalAddress","streetAddress":"Av. Paulista, 1636, 7º andar","addressLocality":"São Paulo","addressRegion":"SP","addressCountry":"BR"},"founder":{"@type":"Person","name":"Mario Mourão","jobTitle":"Advogado","alumniOf":["PUC-SP","Insper","FGV Law"]}}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LegalService",
+        "@id": "https://mmouraoadvocacia.com.br/#org",
+        "name": "M. Mourão Advocacia",
+        "url": "https://mmouraoadvocacia.com.br",
+        "telephone": ["+55-11-99709-6369", "+55-11-31974564"],
+        "email": "advocacia@mariomourao.adv.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Paulista, 1636, 7º andar",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "postalCode": "01310-200",
+          "addressCountry": "BR"
+        },
+        "areaServed": ["São Paulo", "Sul de Minas Gerais", "Brasil"],
+        "founder": {"@type":"Person","name":"Mario Mourão","identifier":"OAB/SP 182.536"}
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {"@type":"Question","name":"O escritório atende clientes fora de São Paulo?","acceptedAnswer":{"@type":"Answer","text":"Sim. O escritório atende presencialmente em São Paulo e no Sul de Minas Gerais, e oferece atendimento remoto por videoconferência para clientes em todo o Brasil."}},
+          {"@type":"Question","name":"Como funciona a análise inicial do caso?","acceptedAnswer":{"@type":"Answer","text":"O processo começa com o contato inicial via WhatsApp ou formulário. O Dr. Mario Mourão avalia a situação e agenda uma conversa para entender os detalhes antes de qualquer proposta de honorários."}}
+        ]
+      }
+    ]
+  }
   </script>
 
   <style>
-    /* ── Home-specific ── */
-    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-up.in-view { opacity: 1; transform: none; }
+    /* ═══════════════════════════════════════════
+       HOME — Page-specific styles
+       ═══════════════════════════════════════════ */
 
-    /* Hero */
-    .hero-home {
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-up.in-view { opacity: 1; transform: none; }
+    .fade-up:nth-child(2) { transition-delay: .1s; }
+    .fade-up:nth-child(3) { transition-delay: .2s; }
+    .fade-up:nth-child(4) { transition-delay: .3s; }
+
+    /* ══════════════════════════════════════
+       SECTION 1 — HERO
+       ══════════════════════════════════════ */
+    .s-hero {
+      background: #0c1228;
       min-height: 100vh;
-      display: grid; grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
       overflow: hidden;
     }
-    .hero-text-col {
-      background: var(--mar);
-      padding: 120px 64px 80px;
-      display: flex; flex-direction: column; justify-content: center;
-      position: relative; overflow: hidden;
-    }
-    .hero-text-col::before {
+
+    /* Subtle noise texture overlay */
+    .s-hero::before {
       content: '';
-      position: absolute; top: -120px; left: -80px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(41,80,204,.25) 0%, transparent 70%);
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 20% 50%, rgba(41,80,204,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 80% 30%, rgba(21,30,67,.4) 0%, transparent 60%);
       pointer-events: none;
     }
-    .hero-text-col::after {
-      content: 'M.Mourão';
-      position: absolute; bottom: -20px; right: -40px;
-      font-size: 9rem; font-weight: 900; letter-spacing: -.05em;
-      color: rgba(255,255,255,.025);
-      pointer-events: none; line-height: 1; white-space: nowrap;
+
+    .hero-left {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 120px 64px 80px 0;
     }
-    .hero-photo-col {
-      position: relative; overflow: hidden;
+
+    /* SEO H1 — visible but visually small */
+    .hero-seo-h1 {
+      font-size: .8125rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-bottom: 28px;
+      display: flex; align-items: center; gap: 12px;
     }
-    .hero-photo-col img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: 40% top;
-    }
-    .hero-photo-col::after {
+    .hero-seo-h1::before {
       content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, rgba(21,30,67,.4) 0%, transparent 60%);
+      display: block; width: 32px; height: 1px;
+      background: rgba(255,255,255,.2);
     }
-    .hero-oab {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 100px;
-      padding: 6px 16px 6px 6px;
-      font-size: .8125rem; color: rgba(255,255,255,.7);
-      margin-bottom: 32px; width: fit-content;
-    }
-    .hero-oab-dot {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: var(--ceu);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-h1 {
-      font-size: clamp(2.5rem, 4vw, 3.75rem);
-      font-weight: 800; letter-spacing: -.03em;
-      line-height: 1.1; color: #fff;
+
+    .hero-headline {
+      font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      color: #fff;
       margin-bottom: 24px;
     }
-    .hero-h1 em { font-style: normal; color: var(--areia); }
-    .hero-lead {
-      font-size: 1.0625rem; color: rgba(255,255,255,.7);
-      line-height: 1.7; margin-bottom: 40px;
-      max-width: 440px;
+    .hero-headline em {
+      font-style: normal;
+      color: var(--areia);
     }
 
-    /* Diferenciais strip */
-    .strip {
-      background: var(--ceu); color: #fff;
-      padding: 20px 0;
+    .hero-sub {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.6);
+      max-width: 480px;
+      margin-bottom: 40px;
     }
-    .strip-inner {
+
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+
+    /* Hero right — video */
+    .hero-right {
+      position: relative; z-index: 1;
       display: flex; align-items: center; justify-content: center;
-      gap: 48px; flex-wrap: wrap;
+      padding: 80px 0 80px 64px;
     }
-    .strip-item {
-      display: flex; align-items: center; gap: 10px;
-      font-size: .875rem; font-weight: 500;
-    }
-    .strip-item svg { opacity: .75; }
 
-    /* Areas section */
-    .areas-grid-home {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: var(--c-border);
+    .video-frame {
+      position: relative; width: 100%; max-width: 520px;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.5);
+      aspect-ratio: 16/9;
+      cursor: pointer;
+      background: #0a0f1e;
+    }
+    .video-frame-img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .4s ease, opacity .3s ease;
+    }
+    .video-frame:hover .video-frame-img { transform: scale(1.03); opacity: .85; }
+
+    .video-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(21,30,67,.3), rgba(0,0,0,.2));
+    }
+    .video-play-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px; height: 72px;
+      background: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,.35);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .video-frame:hover .video-play-btn {
+      transform: translate(-50%, -50%) scale(1.08);
+      box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    }
+    .video-play-btn svg { margin-left: 4px; color: var(--mar); }
+
+    .video-label {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      white-space: nowrap;
+      background: rgba(0,0,0,.55); backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.85); font-size: .8125rem; font-weight: 500;
+      padding: 6px 16px; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      margin-top: 36px; padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .8125rem; color: rgba(255,255,255,.45);
+    }
+    .trust-item svg { color: rgba(255,255,255,.25); }
+
+    /* ── Vimeo lightbox ── */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,.92); align-items: center; justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-inner {
+      position: relative; width: 90vw; max-width: 900px;
+      aspect-ratio: 16/9;
+    }
+    .lightbox-inner iframe {
+      width: 100%; height: 100%; border: none; border-radius: 8px;
+    }
+    .lightbox-close {
+      position: absolute; top: -44px; right: 0;
+      color: rgba(255,255,255,.7); font-size: 1.5rem; cursor: pointer;
+      background: none; border: none; padding: 8px; line-height: 1;
+      transition: color .2s;
+    }
+    .lightbox-close:hover { color: #fff; }
+
+    /* ══════════════════════════════════════
+       SECTION 2 — ÁREAS
+       ══════════════════════════════════════ */
+    .areas-home-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
       border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      box-shadow: var(--sh-sm);
+    }
+    .area-home-card {
+      padding: 40px 32px;
+      border-right: 1px solid var(--c-border);
+      background: #fff;
+      transition: background .25s, color .25s;
+      position: relative;
+    }
+    .area-home-card:last-child { border-right: none; }
+    .area-home-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; background: transparent;
+      transition: background .25s;
+    }
+    .area-home-card:hover { background: var(--mar); }
+    .area-home-card:hover::before { background: var(--ceu); }
+    .ahc-icon { color: var(--ceu); margin-bottom: 20px; transition: color .25s; }
+    .area-home-card:hover .ahc-icon { color: var(--areia); }
+    .ahc-title {
+      font-size: 1rem; font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 10px; line-height: 1.3;
+      transition: color .25s;
+    }
+    .area-home-card:hover .ahc-title { color: #fff; }
+    .ahc-text {
+      font-size: .875rem; line-height: 1.65;
+      color: var(--c-text-mid);
+      transition: color .25s;
+    }
+    .area-home-card:hover .ahc-text { color: rgba(255,255,255,.65); }
+    .ahc-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px; font-size: .8125rem; font-weight: 600;
+      color: var(--ceu); transition: gap .2s, color .25s;
+    }
+    .area-home-card:hover .ahc-link { color: var(--areia); gap: 10px; }
+
+    /* ══════════════════════════════════════
+       SECTION 3 — SOBRE
+       ══════════════════════════════════════ */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 0;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      box-shadow: var(--sh-lg);
+      min-height: 560px;
+    }
+    .sobre-foto { position: relative; }
+    .sobre-foto img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .sobre-content {
+      background: var(--mar); color: #fff;
+      padding: 72px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .sobre-content h2 { color: #fff; margin-bottom: 20px; }
+    .sobre-content p {
+      color: rgba(255,255,255,.7); line-height: 1.8;
+      margin-bottom: 16px; font-size: .9375rem;
+    }
+    .cred-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-top: 32px;
+    }
+    .cred-tag-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r);
+    }
+    .cred-tag-item svg { color: var(--areia); flex-shrink: 0; margin-top: 2px; }
+    .cred-tag-item span { font-size: .8125rem; color: rgba(255,255,255,.8); line-height: 1.4; }
+
+    /* ══════════════════════════════════════
+       SECTION 4 — QUANDO PROCURAR
+       ══════════════════════════════════════ */
+    .quando-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    .quando-card {
+      padding: 24px 20px;
+      background: #fff;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      text-align: center;
+      transition: all .25s var(--ease);
+    }
+    .quando-card:hover {
+      background: var(--mar);
+      border-color: var(--mar);
+      transform: translateY(-3px);
+      box-shadow: var(--sh-md);
+    }
+    .quando-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--espuma);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      color: var(--ceu);
+      transition: background .25s, color .25s;
+    }
+    .quando-card:hover .quando-icon { background: rgba(255,255,255,.1); color: var(--areia); }
+    .quando-card p {
+      font-size: .8125rem; font-weight: 600;
+      color: var(--c-text-mid); line-height: 1.4;
+      transition: color .25s;
+    }
+    .quando-card:hover p { color: rgba(255,255,255,.85); }
+
+    /* ══════════════════════════════════════
+       SECTION 5 — DIFERENCIAIS
+       ══════════════════════════════════════ */
+    .dif-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: rgba(255,255,255,.06);
       border-radius: var(--r-md); overflow: hidden;
+      margin-bottom: 56px;
+    }
+    .dif-card {
+      padding: 48px 40px;
+      background: rgba(255,255,255,.04);
+      position: relative;
+    }
+    .dif-num {
+      font-size: 4.5rem; font-weight: 900;
+      color: rgba(255,255,255,.05); letter-spacing: -.05em;
+      line-height: 1; margin-bottom: 20px;
+    }
+    .dif-title {
+      font-size: 1.25rem; font-weight: 700;
+      color: #fff; margin-bottom: 12px;
+    }
+    .dif-text {
+      font-size: .9375rem; color: rgba(255,255,255,.6);
+      line-height: 1.75;
+    }
+    .dif-line {
+      position: absolute; top: 0; left: 40px; right: 40px;
+      height: 2px; background: var(--areia); opacity: .4;
     }
 
-    /* About section */
-    .about-wrap {
-      display: grid; grid-template-columns: 5fr 6fr;
+    .dif-quote {
+      text-align: center;
+      max-width: 680px; margin: 0 auto;
+      padding: 48px;
+      background: rgba(255,255,255,.04);
+      border-radius: var(--r-md);
+      border: 1px solid rgba(255,255,255,.08);
+      position: relative;
+    }
+    .dif-quote::before {
+      content: '"';
+      position: absolute; top: 16px; left: 36px;
+      font-family: Georgia, serif;
+      font-size: 6rem; line-height: 0;
+      color: rgba(255,255,255,.07);
+    }
+    .dif-quote p {
+      font-size: 1.375rem; font-weight: 300; font-style: italic;
+      color: rgba(255,255,255,.9); line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .dif-quote cite { font-size: .875rem; color: var(--areia); font-style: normal; }
+
+    /* ══════════════════════════════════════
+       SECTION 6 — COMO FUNCIONA
+       ══════════════════════════════════════ */
+    .steps-home {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    /* Connecting line */
+    .steps-home::before {
+      content: '';
+      position: absolute; top: 32px; left: calc(10% + 16px); right: calc(10% + 16px);
+      height: 2px;
+      background: linear-gradient(to right, var(--c-border) 0%, var(--ceu) 50%, var(--c-border) 100%);
+      z-index: 0;
+    }
+    .step-home {
+      position: relative; z-index: 1;
+      text-align: center; padding: 0 16px;
+    }
+    .step-home-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--mar); color: var(--areia);
+      border: 3px solid var(--espuma);
+      font-size: 1.125rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 6px var(--espuma);
+    }
+    .step-home-title {
+      font-size: .9375rem; font-weight: 700;
+      color: var(--c-text); margin-bottom: 8px;
+    }
+    .step-home-text {
+      font-size: .8125rem; color: var(--c-text-light);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 7 — AVALIAÇÕES
+       ══════════════════════════════════════ */
+    .reviews-header {
+      display: flex; align-items: center; gap: 24px;
+      margin-bottom: 48px; flex-wrap: wrap;
+    }
+    .reviews-score {
+      text-align: center;
+      padding: 24px 32px;
+      background: var(--mar); color: #fff;
+      border-radius: var(--r-md);
+      min-width: 140px;
+    }
+    .reviews-score .score-num {
+      font-size: 3rem; font-weight: 800; color: var(--areia);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .reviews-score .score-stars { color: #f5c518; font-size: 1.125rem; letter-spacing: 2px; margin-bottom: 6px; }
+    .reviews-score .score-label { font-size: .75rem; color: rgba(255,255,255,.55); }
+    .reviews-score .score-link { display: block; margin-top: 12px; font-size: .75rem; color: var(--areia); text-decoration: underline; }
+    .reviews-intro p { color: var(--c-text-mid); line-height: 1.7; max-width: 520px; }
+
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .review-card {
+      background: #fff;
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-md);
+      padding: 28px 24px;
+      transition: box-shadow .25s;
+    }
+    .review-card:hover { box-shadow: var(--sh-md); }
+    .review-top {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .review-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--mar);
+      color: var(--areia); font-weight: 700; font-size: .875rem;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .review-name { font-size: .9375rem; font-weight: 600; }
+    .review-date { font-size: .75rem; color: var(--c-text-light); margin-top: 2px; }
+    .review-stars { color: #f5c518; font-size: .875rem; letter-spacing: 1px; margin-bottom: 10px; }
+    .review-text { font-size: .875rem; color: var(--c-text-mid); line-height: 1.65; }
+    .review-source {
+      display: flex; align-items: center; gap: 6px;
+      margin-top: 16px; font-size: .75rem; color: var(--c-text-light);
+    }
+    .reviews-cta {
+      text-align: center; margin-top: 36px;
+    }
+    .reviews-note {
+      font-size: .75rem; color: var(--c-text-light);
+      margin-top: 12px;
+      font-style: italic;
+    }
+
+    /* ══════════════════════════════════════
+       SECTION 8 — REGIÕES
+       ══════════════════════════════════════ */
+    .regioes-grid {
+      display: grid; grid-template-columns: 2fr 2fr 1fr;
+      gap: 48px; align-items: start;
+    }
+    .regiao-block h3 {
+      font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--ceu);
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--c-border);
+    }
+    .regiao-cities {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .regiao-city {
+      padding: 5px 12px;
+      background: var(--espuma);
+      border: 1px solid var(--c-border);
+      border-radius: 100px;
+      font-size: .8125rem; color: var(--c-text-mid);
+      transition: all .2s;
+    }
+    .regiao-city:hover { background: var(--mar); color: #fff; border-color: var(--mar); }
+    .regiao-online {
+      background: var(--mar); color: #fff;
+      border-radius: var(--r-md); padding: 32px 28px;
+      height: fit-content;
+    }
+    .regiao-online h3 { color: var(--areia); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 12px; }
+    .regiao-online p { font-size: .875rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 20px; }
+
+    /* ══════════════════════════════════════
+       SECTION 9 — FAQ (home)
+       ══════════════════════════════════════ */
+
+    /* ══════════════════════════════════════
+       SECTION 10 — CONTATO
+       ══════════════════════════════════════ */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
       gap: 0; border-radius: var(--r-md); overflow: hidden;
       box-shadow: var(--sh-lg);
     }
-    .about-img {
-      position: relative;
-    }
-    .about-img img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: center top;
-    }
-    .about-content {
-      background: var(--mar); color: #fff;
+    .contact-info-col {
+      background: var(--pedra); color: #fff;
       padding: 64px 56px;
-      display: flex; flex-direction: column; justify-content: center;
     }
-    .about-content h2 { color: #fff; margin-bottom: 20px; }
-    .about-content p { color: rgba(255,255,255,.7); line-height: 1.8; margin-bottom: 20px; }
-    .cred-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .cred-tag {
-      padding: 6px 14px; border-radius: 100px;
-      font-size: .8125rem; font-weight: 500;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      color: rgba(255,255,255,.8);
+    .contact-info-col h2 { color: #fff; margin-bottom: 8px; }
+    .contact-info-col .sub { color: rgba(255,255,255,.6); margin-bottom: 48px; line-height: 1.7; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+    .contact-detail-icon {
+      width: 40px; height: 40px; border-radius: var(--r);
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--areia); flex-shrink: 0;
+    }
+    .contact-detail-label { font-size: .75rem; color: rgba(255,255,255,.4); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 4px; }
+    .contact-detail-value { font-size: .9375rem; color: rgba(255,255,255,.9); font-weight: 500; }
+    .contact-detail-value a:hover { color: var(--areia); }
+
+    .contact-form-col {
+      background: #fff;
+      padding: 64px 56px;
     }
 
-    /* CTA section */
-    .cta-section {
-      background: var(--espuma);
-      text-align: center; padding: 100px 0;
-      position: relative; overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-      width: 800px; height: 400px;
-      background: radial-gradient(ellipse, rgba(41,80,204,.07) 0%, transparent 70%);
-    }
-
-    @media (max-width: 1024px) {
-      .hero-home { grid-template-columns: 1fr; min-height: auto; }
-      .hero-text-col { padding: 100px 32px 64px; }
-      .hero-photo-col { height: 480px; }
-      .about-wrap { grid-template-columns: 1fr; }
-      .about-img { height: 380px; }
-      .about-content { padding: 48px 36px; }
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .s-hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 100px 24px 40px; }
+      .hero-right { padding: 0 24px 64px; }
+      .areas-home-grid { grid-template-columns: repeat(2, 1fr); }
+      .area-home-card { border-bottom: 1px solid var(--c-border); }
+      .sobre-grid { grid-template-columns: 1fr; }
+      .sobre-foto { height: 400px; }
+      .sobre-content { padding: 48px 36px; }
+      .quando-grid { grid-template-columns: repeat(5, 1fr); }
+      .dif-grid { grid-template-columns: 1fr; }
+      .steps-home { grid-template-columns: 1fr; gap: 32px; }
+      .steps-home::before { display: none; }
+      .step-home { text-align: left; display: flex; align-items: flex-start; gap: 20px; }
+      .step-home-num { margin: 0; flex-shrink: 0; }
+      .regioes-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .hero-text-col { padding: 80px 24px 56px; }
-      .hero-text-col::after { display: none; }
-      .about-content { padding: 40px 24px; }
-      .strip-inner { gap: 24px; }
-      .areas-grid-home { grid-template-columns: 1fr; }
+      .hero-headline { font-size: 2.25rem; }
+      .areas-home-grid { grid-template-columns: 1fr; }
+      .quando-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .contact-info-col, .contact-form-col { padding: 40px 28px; }
+      .dif-card { padding: 36px 28px; }
     }
   </style>
 </head>
@@ -181,7 +613,6 @@
              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
         <span style="display:none;font-size:1.125rem;font-weight:800;color:var(--mar);letter-spacing:-.02em">M.Mourão <span style="font-weight:400;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase">Advocacia</span></span>
       </a>
-
       <nav class="hdr-nav" aria-label="Navegação principal">
         <ul class="nav-list">
           <li><a href="index.html" class="active">Home</a></li>
@@ -196,20 +627,17 @@
               <a href="templates/area.html">Direito de Família</a>
               <a href="areas-de-atuacao.html">Ações Indenizatórias</a>
               <a href="areas-de-atuacao.html">Direito da Saúde</a>
-              <a href="areas-de-atuacao.html">Contratos & Negócios</a>
+              <a href="areas-de-atuacao.html">Assessoria Empresarial</a>
             </div>
           </li>
           <li><a href="regioes-atendidas.html">Regiões</a></li>
           <li><a href="faq.html">FAQ</a></li>
         </ul>
         <div class="hdr-cta">
-          <a href="contato.html" class="btn btn--primary">Falar com Advogado</a>
+          <a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="btn btn--primary" target="_blank" rel="noopener">Falar com um Advogado</a>
         </div>
       </nav>
-
-      <button class="hdr-burger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="hdr-burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
@@ -221,183 +649,179 @@
   <a href="regioes-atendidas.html">Regiões Atendidas</a>
   <a href="faq.html">FAQ</a>
   <a href="contato.html">Contato</a>
-  <a href="https://wa.me/5511997096369" class="btn btn--wa">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    WhatsApp
-  </a>
+  <a href="https://wa.me/5511997096369" class="btn btn--wa" target="_blank" rel="noopener">WhatsApp</a>
 </nav>
 
-<!-- ─── HERO ───────────────────────────────────────────────── -->
-<section class="hero-home" aria-label="Apresentação">
-  <div class="hero-text-col">
-    <div class="hero-oab">
-      <span class="hero-oab-dot">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </span>
-      OAB/SP 182.536 · Av. Paulista, São Paulo
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 1 — HERO
+     ══════════════════════════════════════════════════════════ -->
+<section class="s-hero" aria-label="Apresentação">
+  <div class="container" style="display:contents">
+
+    <!-- Left: text -->
+    <div class="hero-left" style="padding-left:max(24px, calc((100vw - 1200px)/2 + 24px))">
+      <h1 class="hero-seo-h1">Escritório de Advocacia na Avenida Paulista</h1>
+
+      <p class="hero-headline">
+        Mais de 26 anos de<br>
+        experiência jurídica<br>
+        a serviço de <em>pessoas,<br>
+        famílias e empresas.</em>
+      </p>
+
+      <p class="hero-sub">
+        A M. Mourão Advocacia oferece assessoria jurídica personalizada em São Paulo, Sul de Minas Gerais e todo o Brasil. Dr. Mario Mourão atua em ações indenizatórias, direito de família, planejamento patrimonial, direito da saúde, contratos e assessoria empresarial — sempre com foco em atendimento próximo e soluções estratégicas.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com um Advogado
+        </a>
+        <a href="o-escritorio.html" class="btn btn--outline-light btn--lg">Conheça o Escritório</a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          OAB/SP 182.536
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Av. Paulista, São Paulo
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          26+ anos de atuação
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+          Atendimento online disponível
+        </div>
+      </div>
     </div>
 
-    <h1 class="hero-h1">
-      Assessoria jurídica<br>
-      com a experiência<br>
-      de <em>quem realmente</em><br>
-      já esteve lá.
-    </h1>
-    <p class="hero-lead">
-      Mais de 26 anos de prática jurídica, com passagem por Banco Santander, ABN AMRO Real e formação em Insper, PUC-SP e FGV. Atendimento personalizado, conduzido diretamente pelo Dr. Mario Mourão.
-    </p>
-    <div class="hero-ctas">
-      <a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Consulta via WhatsApp
-      </a>
-      <a href="contato.html" class="btn btn--outline-light btn--lg">Agendar Reunião</a>
+    <!-- Right: video -->
+    <div class="hero-right" style="padding-right:max(24px, calc((100vw - 1200px)/2 + 24px))">
+      <div class="video-frame" id="videoThumb" role="button" tabindex="0" aria-label="Assistir vídeo institucional">
+        <img class="video-frame-img"
+             src="assets/fotos/mario-04.jpg"
+             alt="Dr. Mario Mourão — vídeo institucional M. Mourão Advocacia">
+        <div class="video-overlay"></div>
+        <div class="video-play-btn">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="#151e43"/></svg>
+        </div>
+        <div class="video-label">Vídeo Institucional · Dr. Mario Mourão</div>
+      </div>
     </div>
-  </div>
-  <div class="hero-photo-col">
-    <img src="assets/fotos/mario-01.jpg" alt="Dr. Mario Mourão, advogado" loading="eager">
+
   </div>
 </section>
 
-<!-- ─── STRIP ──────────────────────────────────────────────── -->
-<div class="strip">
-  <div class="container">
-    <div class="strip-inner">
-      <div class="strip-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        Atendimento personalizado e direto
-      </div>
-      <div class="strip-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg>
-        26+ anos de experiência jurídica
-      </div>
-      <div class="strip-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        Av. Paulista · SP e Sul de MG
-      </div>
-      <div class="strip-item">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Consultas presenciais e online
-      </div>
-    </div>
+<!-- Vimeo lightbox -->
+<div class="lightbox" id="videoLightbox" role="dialog" aria-label="Vídeo institucional" aria-modal="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar vídeo">✕</button>
+    <iframe id="vimeoFrame" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="M. Mourão Advocacia — Vídeo Institucional"></iframe>
   </div>
 </div>
 
-<!-- ─── ÁREAS ──────────────────────────────────────────────── -->
-<section class="section">
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 2 — ÁREAS DE ATUAÇÃO
+     ══════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="areas-title">
   <div class="container">
-    <div class="sec-hdr fade-up">
+    <div class="sec-hdr sec-hdr--center fade-up">
       <div class="eyebrow">Áreas de Atuação</div>
-      <h2 class="h-lg">Soluções jurídicas para cada situação</h2>
-      <p class="lead">Do planejamento familiar ao contencioso empresarial — assessoria estratégica e comprometida com os seus resultados.</p>
+      <h2 class="h-lg" id="areas-title">Soluções jurídicas para pessoas,<br>famílias e empresas.</h2>
     </div>
 
-    <div class="areas-grid-home fade-up">
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    <div class="areas-home-grid fade-up">
+      <div class="area-home-card">
+        <div class="ahc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
         </div>
-        <div class="area-card__title">Direito de Família</div>
-        <div class="area-card__text">Divórcio, inventário, guarda, pensão alimentícia e planejamento sucessório.</div>
-        <a href="templates/area.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="ahc-title">Ações Indenizatórias</div>
+        <p class="ahc-text">Atuação em responsabilidade civil, danos materiais, danos morais e defesa de direitos violados.</p>
+        <a href="areas-de-atuacao.html" class="ahc-link">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+      <div class="area-home-card">
+        <div class="ahc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         </div>
-        <div class="area-card__title">Ações Indenizatórias</div>
-        <div class="area-card__text">Danos morais, materiais, erro médico, acidentes e falhas contratuais.</div>
-        <a href="areas-de-atuacao.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="ahc-title">Direito de Família e Sucessões</div>
+        <p class="ahc-text">Inventários, divórcios, planejamento sucessório, interdição, curatela e proteção patrimonial familiar.</p>
+        <a href="templates/area.html" class="ahc-link">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+      <div class="area-home-card">
+        <div class="ahc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
         </div>
-        <div class="area-card__title">Direito da Saúde</div>
-        <div class="area-card__text">Negativas de plano, reembolsos, cobertura de procedimentos e cirurgias.</div>
-        <a href="areas-de-atuacao.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="ahc-title">Direito da Saúde</div>
+        <p class="ahc-text">Negativas de cobertura, tutelas de urgência, erro médico e procedimentos médicos de alta complexidade.</p>
+        <a href="areas-de-atuacao.html" class="ahc-link">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      <div class="area-home-card">
+        <div class="ahc-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
-        <div class="area-card__title">Contratos & Negócios</div>
-        <div class="area-card__text">Elaboração, revisão e negociação de contratos empresariais e civis.</div>
-        <a href="areas-de-atuacao.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg>
-        </div>
-        <div class="area-card__title">Direito Societário</div>
-        <div class="area-card__text">Constituição, reestruturação, dissolução e governança de empresas.</div>
-        <a href="areas-de-atuacao.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-
-      <div class="area-card">
-        <div class="area-card__icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        </div>
-        <div class="area-card__title">Direito Imobiliário</div>
-        <div class="area-card__text">Compra, venda, locações, usucapião e incorporações imobiliárias.</div>
-        <a href="areas-de-atuacao.html" class="area-card__link">Ver área <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <div class="ahc-title">Assessoria Empresarial e Contratual</div>
+        <p class="ahc-text">Contratos, acordos societários, reorganizações empresariais e consultoria jurídica estratégica.</p>
+        <a href="areas-de-atuacao.html" class="ahc-link">Saiba mais <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
 
     <div class="text-center mt-8 fade-up">
-      <a href="areas-de-atuacao.html" class="btn btn--outline">Ver todas as áreas de atuação</a>
+      <a href="areas-de-atuacao.html" class="btn btn--outline">Ver Todas as Áreas de Atuação</a>
     </div>
   </div>
 </section>
 
-<!-- ─── STATS ──────────────────────────────────────────────── -->
-<section class="section--dark">
-  <div class="container">
-    <div class="stats-grid fade-up">
-      <div class="stat-item">
-        <div class="stat-num">26+</div>
-        <div class="stat-label">anos de atuação jurídica</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">R$1,7bi</div>
-        <div class="stat-label">em operações estruturadas assessoradas</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label">instituições de ensino superior (PUC-SP, Insper, FGV)</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">atendimento conduzido pelo próprio advogado</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ─── SOBRE ──────────────────────────────────────────────── -->
-<section class="section">
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 3 — SOBRE O ESCRITÓRIO
+     ══════════════════════════════════════════════════════════ -->
+<section class="section section--soft" aria-labelledby="sobre-title">
   <div class="container">
-    <div class="about-wrap fade-up">
-      <div class="about-img">
-        <img src="assets/fotos/mario-02.jpg" alt="Dr. Mario Mourão — advogado com 26 anos de experiência">
+    <div class="sobre-grid fade-up">
+      <div class="sobre-foto">
+        <img src="assets/fotos/mario-02.jpg" alt="Dr. Mario Mourão, advogado com 26 anos de experiência jurídica" loading="lazy">
       </div>
-      <div class="about-content">
+      <div class="sobre-content">
         <div class="eyebrow eyebrow--light">O Escritório</div>
-        <h2 class="h-md">A experiência corporativa a serviço do cliente individual</h2>
-        <p>Mario Mourão construiu sua carreira jurídica nos ambientes mais exigentes do mercado financeiro brasileiro — Banco Santander e ABN AMRO Real — antes de fundar seu próprio escritório boutique.</p>
-        <p>Essa trajetória única permite oferecer ao cliente individual a mesma qualidade técnica e rigor estratégico que antes era acessível apenas a grandes corporações.</p>
-        <div class="cred-tags">
-          <span class="cred-tag">LL.M. Mercado Financeiro — Insper</span>
-          <span class="cred-tag">Mestre em Processo Civil — PUC-SP</span>
-          <span class="cred-tag">Professor FGV Law</span>
-          <span class="cred-tag">Autor — Almedina</span>
-          <span class="cred-tag">Deal of the Year 2009</span>
+        <h2 class="h-md" id="sobre-title">Uma trajetória construída pela experiência jurídica e pelo relacionamento com as pessoas.</h2>
+        <p>A M. Mourão Advocacia nasceu da experiência acumulada ao longo de mais de 26 anos de atuação jurídica. Ao longo dessa trajetória, Mario Mourão desenvolveu expertise em contencioso cível, ações indenizatórias, recuperação de crédito, mercado financeiro, contratos empresariais, operações estruturadas e assessoria jurídica estratégica.</p>
+        <p>Com o passar dos anos, essa experiência evoluiu para um modelo de atuação mais próximo do cliente, voltado não apenas para empresas, mas também para famílias, empresários e pessoas que buscam orientação jurídica qualificada em momentos importantes de suas vidas.</p>
+
+        <div class="cred-grid">
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            <span>26+ Anos de Experiência Jurídica</span>
+          </div>
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            <span>LL.M. em Direito Bancário — Insper</span>
+          </div>
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+            <span>Mestre em Processo Civil — PUC-SP</span>
+          </div>
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span>Autor — "Financiamentos Estruturados" (Almedina)</span>
+          </div>
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg>
+            <span>Professor Visitante — FGV Law</span>
+          </div>
+          <div class="cred-tag-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            <span>Deal of the Year 2009 — Latin Lawyer</span>
+          </div>
         </div>
-        <div class="mt-8">
+
+        <div style="margin-top:36px">
           <a href="o-escritorio.html" class="btn btn--outline-light">Conheça a trajetória completa</a>
         </div>
       </div>
@@ -405,67 +829,438 @@
   </div>
 </section>
 
-<!-- ─── PILARES ────────────────────────────────────────────── -->
-<section class="section--dark section">
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 4 — QUANDO PROCURAR
+     ══════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="quando-title">
   <div class="container">
     <div class="sec-hdr sec-hdr--center fade-up">
-      <div class="eyebrow eyebrow--light">Nossa Filosofia</div>
-      <h2 class="h-lg" style="color:#fff">Três pilares, uma promessa</h2>
+      <div class="eyebrow">Orientação Jurídica</div>
+      <h2 class="h-lg" id="quando-title">Orientação jurídica adequada pode fazer diferença antes que um problema se torne maior.</h2>
+      <p class="lead">Reconheça situações em que a assessoria de um advogado experiente pode proteger seus direitos.</p>
     </div>
-    <div class="pillar-grid fade-up">
-      <div class="pillar">
-        <div class="pillar-num">01</div>
-        <div class="pillar-title">Integridade</div>
-        <div class="pillar-text">Transparência absoluta em todas as etapas — honorários, expectativas e estratégia. O cliente sempre sabe exatamente onde está.</div>
+
+    <div class="quando-grid fade-up">
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div>
+        <p>Direitos violados ou necessidade de indenização</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-num">02</div>
-        <div class="pillar-title">Técnica</div>
-        <div class="pillar-text">Profundidade jurídica desenvolvida em 26 anos de prática em contextos complexos. Não há atalhos quando o que está em jogo é o seu direito.</div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+        <p>Inventários e questões sucessórias</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-num">03</div>
-        <div class="pillar-title">Acolhimento</div>
-        <div class="pillar-text">Cada caso é único. O atendimento é personalizado, conduzido diretamente pelo Dr. Mario Mourão, sem intermediários ou delegação para terceiros.</div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+        <p>Divórcios e conflitos familiares</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div>
+        <p>Planejamento patrimonial familiar</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div>
+        <p>Negativas de plano de saúde</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div>
+        <p>Contratos empresariais e negócios</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0H5m14 0h2M5 21H3M9 7h1m-1 4h1m4-4h1m-1 4h1"/></svg></div>
+        <p>Questões societárias e empresariais</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <p>Procedimentos médicos de urgência</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <p>Proteção patrimonial familiar</p>
+      </div>
+      <div class="quando-card">
+        <div class="quando-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+        <p>Reorganização e governança de empresas</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CTA ────────────────────────────────────────────────── -->
-<section class="cta-section fade-up">
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 5 — DIFERENCIAIS
+     ══════════════════════════════════════════════════════════ -->
+<section class="section section--dark" aria-labelledby="dif-title">
   <div class="container">
-    <div class="eyebrow" style="justify-content:center">Próximo passo</div>
-    <h2 class="h-lg" style="margin-bottom:16px">Entendemos o seu caso.<br>Depois, avaliamos juntos.</h2>
-    <p class="lead" style="max-width:520px;margin:0 auto 40px">Entre em contato para uma primeira conversa. Sem compromisso, sem julgamento — apenas para entender a sua situação.</p>
-    <div class="flex-center" style="gap:16px;flex-wrap:wrap">
-      <a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="btn btn--wa btn--lg" target="_blank" rel="noopener">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp: (11) 99709-6369
-      </a>
-      <a href="contato.html" class="btn btn--primary btn--lg">Formulário de Contato</a>
+    <div class="sec-hdr sec-hdr--center fade-up">
+      <div class="eyebrow eyebrow--light">Nossa Filosofia</div>
+      <h2 class="h-lg" id="dif-title" style="color:#fff">Uma advocacia construída sobre<br>três pilares fundamentais.</h2>
+    </div>
+
+    <div class="dif-grid fade-up">
+      <div class="dif-card">
+        <div class="dif-line"></div>
+        <div class="dif-num">01</div>
+        <div class="dif-title">Integridade</div>
+        <p class="dif-text">Atuação ética, transparente e comprometida com os interesses do cliente. Sem atalhos, sem promessas vazias — apenas clareza sobre o que é possível e o que não é.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-line"></div>
+        <div class="dif-num">02</div>
+        <div class="dif-title">Técnica</div>
+        <p class="dif-text">Mais de 26 anos de experiência jurídica aliados à formação acadêmica contínua — Insper, PUC-SP, FGV, Euromoney — e à atuação em operações empresariais de grande complexidade.</p>
+      </div>
+      <div class="dif-card">
+        <div class="dif-line"></div>
+        <div class="dif-num">03</div>
+        <div class="dif-title">Acolhimento</div>
+        <p class="dif-text">Atendimento próximo, humano e personalizado para compreender as reais necessidades de cada cliente. Cada caso é único e merece atenção dedicada, conduzida diretamente pelo Dr. Mario Mourão.</p>
+      </div>
+    </div>
+
+    <div class="dif-quote fade-up">
+      <p>"Saber ouvir é parte fundamental de uma boa advocacia."</p>
+      <cite>Dr. Mario Mourão · OAB/SP 182.536</cite>
     </div>
   </div>
 </section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 6 — COMO FUNCIONA O ATENDIMENTO
+     ══════════════════════════════════════════════════════════ -->
+<section class="section section--soft" aria-labelledby="como-title">
+  <div class="container">
+    <div class="sec-hdr sec-hdr--center fade-up">
+      <div class="eyebrow">Processo de Atendimento</div>
+      <h2 class="h-lg" id="como-title">Um processo construído com proximidade e transparência.</h2>
+    </div>
+
+    <div class="steps-home fade-up">
+      <div class="step-home">
+        <div class="step-home-num">01</div>
+        <div>
+          <div class="step-home-title">Primeiro Contato</div>
+          <p class="step-home-text">Apresentação inicial da sua situação via WhatsApp ou formulário de contato.</p>
+        </div>
+      </div>
+      <div class="step-home">
+        <div class="step-home-num">02</div>
+        <div>
+          <div class="step-home-title">Entendimento dos Fatos</div>
+          <p class="step-home-text">Compreensão profunda do contexto e das necessidades específicas do cliente.</p>
+        </div>
+      </div>
+      <div class="step-home">
+        <div class="step-home-num">03</div>
+        <div>
+          <div class="step-home-title">Análise Jurídica</div>
+          <p class="step-home-text">Avaliação técnica da situação apresentada com base na legislação aplicável.</p>
+        </div>
+      </div>
+      <div class="step-home">
+        <div class="step-home-num">04</div>
+        <div>
+          <div class="step-home-title">Definição da Estratégia</div>
+          <p class="step-home-text">Apresentação clara dos caminhos jurídicos disponíveis e da estratégia recomendada.</p>
+        </div>
+      </div>
+      <div class="step-home">
+        <div class="step-home-num">05</div>
+        <div>
+          <div class="step-home-title">Acompanhamento Próximo</div>
+          <p class="step-home-text">Atuação contínua ao lado do cliente em todas as etapas do processo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 7 — AVALIAÇÕES DO GOOGLE
+     ══════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="sec-hdr fade-up">
+      <div class="eyebrow">Avaliações</div>
+      <h2 class="h-lg" id="reviews-title">A confiança de quem já contou com nossa atuação.</h2>
+    </div>
+
+    <div class="reviews-header fade-up">
+      <div class="reviews-score">
+        <div class="score-num">5,0</div>
+        <div class="score-stars">★★★★★</div>
+        <div class="score-label">Google Reviews</div>
+        <a href="https://g.page/r/mmouraoadvocacia/review" class="score-link" target="_blank" rel="noopener">Ver no Google</a>
+      </div>
+      <div class="reviews-intro">
+        <p>As avaliações refletem a experiência real de clientes que buscaram orientação jurídica e encontraram no escritório M. Mourão Advocacia o atendimento personalizado, a técnica e o acolhimento que precisavam.</p>
+      </div>
+    </div>
+
+    <!-- WordPress note: replace cards below with Google Reviews widget/plugin -->
+    <div class="reviews-grid fade-up">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Maria S.</div>
+            <div class="review-date">há 2 meses</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Atendimento excepcional. O Dr. Mario Mourão foi muito atencioso, explicou tudo com clareza e resolveu nossa questão de inventário de forma eficiente. Recomendo."</p>
+        <div class="review-source">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Google · Avaliação verificada
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#1c2a5c">R</div>
+          <div>
+            <div class="review-name">Ricardo F.</div>
+            <div class="review-date">há 3 meses</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Procurei o escritório para uma questão de plano de saúde que estava negando um procedimento urgente. O Dr. Mario obteve uma liminar rapidamente. Profissional competente e humano."</p>
+        <div class="review-source">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Google · Avaliação verificada
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#2950cc">A</div>
+          <div>
+            <div class="review-name">Ana C.</div>
+            <div class="review-date">há 1 mês</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Passei por um processo de divórcio difícil e o Dr. Mario foi fundamental para que tudo corresse de forma justa e tranquila. Muito obrigada pela dedicação e pela empatia."</p>
+        <div class="review-source">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="#4285F4"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Google · Avaliação verificada
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-cta">
+      <a href="https://g.page/r/mmouraoadvocacia/review" class="btn btn--outline" target="_blank" rel="noopener">Ver todas as avaliações no Google</a>
+      <p class="reviews-note">Em WordPress: substituir os cards acima pelo widget de Google Reviews (plugin recomendado: Widgets for Google Reviews)</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 8 — REGIÕES ATENDIDAS
+     ══════════════════════════════════════════════════════════ -->
+<section class="section section--soft" aria-labelledby="regioes-title">
+  <div class="container">
+    <div class="sec-hdr sec-hdr--center fade-up">
+      <div class="eyebrow">Cobertura Geográfica</div>
+      <h2 class="h-lg" id="regioes-title">Atendimento jurídico em São Paulo,<br>Sul de Minas Gerais e todo o Brasil.</h2>
+    </div>
+
+    <div class="regioes-grid fade-up">
+      <div class="regiao-block">
+        <h3>Estado de São Paulo</h3>
+        <div class="regiao-cities">
+          <span class="regiao-city">São Paulo</span><span class="regiao-city">Campinas</span><span class="regiao-city">Santos</span><span class="regiao-city">Guarulhos</span><span class="regiao-city">Osasco</span><span class="regiao-city">Barueri</span><span class="regiao-city">Santo André</span><span class="regiao-city">São Bernardo</span><span class="regiao-city">Sorocaba</span><span class="regiao-city">Ribeirão Preto</span><span class="regiao-city">São José dos Campos</span><span class="regiao-city">Jundiaí</span><span class="regiao-city">Piracicaba</span><span class="regiao-city">Bauru</span><span class="regiao-city">São Carlos</span><span class="regiao-city">Taubaté</span>
+        </div>
+      </div>
+      <div class="regiao-block">
+        <h3>Sul de Minas Gerais</h3>
+        <div class="regiao-cities">
+          <span class="regiao-city">Pouso Alegre</span><span class="regiao-city">Varginha</span><span class="regiao-city">Poços de Caldas</span><span class="regiao-city">Itajubá</span><span class="regiao-city">Alfenas</span><span class="regiao-city">Lavras</span><span class="regiao-city">Passos</span><span class="regiao-city">Três Corações</span><span class="regiao-city">Santa Rita do Sapucaí</span><span class="regiao-city">São Lourenço</span>
+        </div>
+      </div>
+      <div class="regiao-online">
+        <h3>Atendimento Nacional</h3>
+        <p>Videoconferência para clientes em qualquer cidade do Brasil. Mesma qualidade de atendimento, sem necessidade de deslocamento.</p>
+        <a href="contato.html" class="btn btn--outline-light" style="width:100%;justify-content:center;font-size:.875rem">Agendar Reunião Online</a>
+      </div>
+    </div>
+
+    <div class="text-center mt-8 fade-up">
+      <a href="regioes-atendidas.html" class="btn btn--outline">Ver Todas as Regiões Atendidas</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 9 — FAQ
+     ══════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="faq-title">
+  <div class="container" style="max-width:800px">
+    <div class="sec-hdr sec-hdr--center fade-up">
+      <div class="eyebrow">Dúvidas Frequentes</div>
+      <h2 class="h-md" id="faq-title">Perguntas sobre o atendimento</h2>
+    </div>
+
+    <div class="faq-list fade-up">
+      <div class="faq-item">
+        <button class="faq-q">O escritório atende clientes fora de São Paulo?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. O escritório possui sede na Avenida Paulista e atende presencialmente clientes em São Paulo e no Sul de Minas Gerais. Para clientes em outras cidades ou estados, oferecemos atendimento completo por videoconferência.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O atendimento pode ser realizado online?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Realizamos consultas e reuniões por videoconferência para clientes em qualquer região do Brasil. A qualidade do atendimento é a mesma que a do atendimento presencial.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como funciona a análise inicial do caso?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Após o contato inicial via WhatsApp ou formulário, o Dr. Mario Mourão avalia a situação e agenda uma conversa para entender os detalhes do caso. Somente após essa conversa é apresentada uma proposta de honorários adequada à complexidade da demanda.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quais áreas do Direito são atendidas?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">O escritório atua principalmente em Ações Indenizatórias, Direito de Família e Sucessões, Direito da Saúde e Assessoria Empresarial e Contratual. Também são atendidas demandas em Direito Societário, Imobiliário, Agronegócio, Relações de Consumo e Direito Tributário.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">O escritório atende empresas e pessoas físicas?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. A M. Mourão Advocacia atende tanto pessoas físicas quanto jurídicas — empresas familiares, empresários individuais e pessoas em situações jurídicas complexas relacionadas ao patrimônio, família ou saúde.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">É possível realizar reuniões por videoconferência?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. O escritório utiliza plataformas de videoconferência para atendimentos remotos. A reunião pode ser agendada pelo WhatsApp ou pelo formulário de contato do site.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Como funciona a contratação dos serviços?<span class="icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Após a análise do caso e a apresentação da proposta de honorários, é assinado um contrato de prestação de serviços jurídicos que define claramente o escopo do trabalho, os honorários e as condições de pagamento.</div></div>
+      </div>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="faq.html" class="btn btn--outline">Ver todas as perguntas</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════════════
+     SEÇÃO 10 — FORMULÁRIO DE CONTATO
+     ══════════════════════════════════════════════════════════ -->
+<section class="section" id="contato" aria-labelledby="contato-title">
+  <div class="container">
+    <div class="contact-grid fade-up">
+
+      <!-- Left: info -->
+      <div class="contact-info-col">
+        <div class="eyebrow eyebrow--light">Entre em Contato</div>
+        <h2 class="h-md" id="contato-title">Entre em Contato</h2>
+        <p class="sub">Descreva brevemente sua situação e nossa equipe retornará o contato para orientar os próximos passos.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Endereço</div>
+            <div class="contact-detail-value">Av. Paulista, 1636, 7º andar<br>São Paulo – SP</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">WhatsApp</div>
+            <div class="contact-detail-value"><a href="https://wa.me/5511997096369" target="_blank" rel="noopener">(11) 99709-6369</a></div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">Telefone</div>
+            <div class="contact-detail-value">(11) 3197-4564</div>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="contact-detail-label">E-mail</div>
+            <div class="contact-detail-value"><a href="mailto:advocacia@mariomourao.adv.br">advocacia@mariomourao.adv.br</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-col">
+        <form class="js-form" action="#" method="post" novalidate>
+          <div class="form-grid" style="--c-bg:transparent">
+            <div class="form-group">
+              <label class="form-label form-label--dark" for="f-nome">Nome completo *</label>
+              <input class="form-input form-input--light" type="text" id="f-nome" name="nome" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label form-label--dark" for="f-tel">Telefone / WhatsApp *</label>
+              <input class="form-input form-input--light" type="tel" id="f-tel" name="telefone" placeholder="(11) 9 0000-0000" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label form-label--dark" for="f-email">E-mail *</label>
+              <input class="form-input form-input--light" type="email" id="f-email" name="email" placeholder="seu@email.com.br" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label form-label--dark" for="f-cidade">Cidade</label>
+              <input class="form-input form-input--light" type="text" id="f-cidade" name="cidade" placeholder="Sua cidade">
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label form-label--dark" for="f-area">Área de Interesse</label>
+              <select class="form-select form-select--light" id="f-area" name="area">
+                <option value="">Selecione uma área</option>
+                <option>Ações Indenizatórias</option>
+                <option>Direito de Família e Sucessões</option>
+                <option>Direito da Saúde</option>
+                <option>Assessoria Empresarial e Contratual</option>
+                <option>Direito Societário</option>
+                <option>Direito Imobiliário</option>
+                <option>Agronegócio</option>
+                <option>Direito Tributário</option>
+                <option>Outro</option>
+              </select>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label form-label--dark" for="f-msg">Mensagem *</label>
+              <textarea class="form-textarea form-textarea--light" id="f-msg" name="mensagem" placeholder="Descreva brevemente sua situação…" required></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%;justify-content:center">Enviar Mensagem</button>
+              <p class="form-note form-note--dark" style="margin-top:10px">Seus dados são tratados com sigilo absoluto. OAB/SP 182.536.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- ─── FOOTER ─────────────────────────────────────────────── -->
 <footer class="ftr">
   <div class="container">
     <div class="ftr-grid">
       <div>
-        <img src="assets/logo/mmourao-hz-branco.png" alt="M. Mourão Advocacia"
-             onerror="this.style.display='none'">
-        <p class="ftr-about" style="margin-top:20px">Escritório boutique de advocacia com atuação estratégica em Direito de Família, Ações Indenizatórias, Direito da Saúde e Empresarial.</p>
+        <img src="assets/logo/mmourao-hz-branco.png" alt="M. Mourão Advocacia" onerror="this.style.display='none'">
+        <p class="ftr-about" style="margin-top:20px">Escritório boutique de advocacia com atuação estratégica em Direito de Família, Ações Indenizatórias, Direito da Saúde e Assessoria Empresarial. Sede na Avenida Paulista, São Paulo.</p>
         <p class="ftr-tagline">Integridade · Técnica · Acolhimento</p>
       </div>
       <div class="ftr-col">
-        <h4>Áreas</h4>
+        <h4>Áreas de Atuação</h4>
         <ul>
           <li><a href="templates/area.html">Direito de Família</a></li>
           <li><a href="areas-de-atuacao.html">Ações Indenizatórias</a></li>
           <li><a href="areas-de-atuacao.html">Direito da Saúde</a></li>
-          <li><a href="areas-de-atuacao.html">Contratos</a></li>
-          <li><a href="areas-de-atuacao.html">Societário</a></li>
+          <li><a href="areas-de-atuacao.html">Assessoria Empresarial</a></li>
+          <li><a href="areas-de-atuacao.html">Ver todas as áreas</a></li>
         </ul>
       </div>
       <div class="ftr-col">
@@ -475,13 +1270,15 @@
           <li><a href="regioes-atendidas.html">Regiões Atendidas</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="contato.html">Contato</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
         </ul>
       </div>
       <div class="ftr-col">
         <h4>Contato</h4>
         <div class="ftr-contact-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <span>Av. Paulista, 1636, 7º andar<br>São Paulo – SP</span>
+          <span>Av. Paulista, 1636, 7º andar<br>São Paulo – SP · 01310-200</span>
         </div>
         <div class="ftr-contact-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
@@ -491,12 +1288,16 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           <span>advocacia@mariomourao.adv.br</span>
         </div>
+        <div class="ftr-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>OAB/SP 182.536</span>
+        </div>
       </div>
     </div>
   </div>
   <div class="ftr-bottom">
     <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
-      <span>© 2026 M. Mourão Advocacia · OAB/SP 182.536</span>
+      <span>© 2026 M. Mourão Advocacia · OAB/SP 182.536 · Todos os direitos reservados</span>
       <span>Desenvolvido por <a href="https://localrankbrasil.com.br" style="color:rgba(255,255,255,.4)">Local Rank Brasil</a></span>
     </div>
   </div>
@@ -507,12 +1308,39 @@
   </div>
 </footer>
 
-<!-- ─── WHATSAPP FLOAT ──────────────────────────────────────── -->
-<a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+<!-- WhatsApp float -->
+<a href="https://wa.me/5511997096369?text=Olá,%20gostaria%20de%20falar%20com%20o%20Dr.%20Mario%20Mourão." class="wa-float" target="_blank" rel="noopener" aria-label="Falar via WhatsApp">
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   <span>Fale conosco</span>
 </a>
 
 <script src="js/main.js"></script>
+<script>
+  // ── Vimeo lightbox ──
+  const thumb = document.getElementById('videoThumb');
+  const lb    = document.getElementById('videoLightbox');
+  const frame = document.getElementById('vimeoFrame');
+  const closeBtn = document.getElementById('lightboxClose');
+  const VIMEO_URL = 'https://player.vimeo.com/video/1204281570?autoplay=1&color=2950cc&title=0&byline=0&portrait=0';
+
+  function openLightbox() {
+    frame.src = VIMEO_URL;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeLightbox() {
+    lb.classList.remove('open');
+    frame.src = '';
+    document.body.style.overflow = '';
+    thumb.focus();
+  }
+
+  thumb.addEventListener('click', openLightbox);
+  thumb.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(); } });
+  closeBtn.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox(); });
+</script>
 </body>
 </html>
